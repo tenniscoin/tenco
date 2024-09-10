@@ -286,10 +286,10 @@
         <div class="countdown" id="countdown">500 clicks remaining</div>
         
         <!-- Modulo di partecipazione all'airdrop -->
-        <form class="airdrop-form" action="#" method="post">
+        <form id="airdrop-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="wallet" placeholder="Your Wallet Private Key" required>
+            <input type="text" name="wallet" placeholder="Your Wallet Public Key" required>
             <button type="submit">Participate</button>
         </form>
     </section>
@@ -363,7 +363,8 @@
             if (remainingClicks > 0) {
                 remainingClicks--;
                 updateCountdown();
-            }
+            
+           }
         });
 
         // Inizializza il contatore
