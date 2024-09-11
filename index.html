@@ -341,55 +341,54 @@
     </footer>
 
     <script>
-    // Simulazione del contatore
-    let remainingClicks = 500;
-
-    // Funzione per aggiornare il contatore
-    function updateCountdown() {
-        const countdownElement = document.getElementById('countdown');
-        countdownElement.textContent = `${remainingClicks} clicks remaining`;
-    }
-
-    // Gestisci l'invio del modulo
-    document.getElementById('airdrop-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevenire l'invio predefinito
-
-        if (remainingClicks > 0) {
-            remainingClicks--;
-            updateCountdown();
-
-            // Raccogli i dati del modulo
-            const formData = new FormData(this);
-
-            // Invia i dati del modulo con fetch
-            fetch('https://formspree.io/f/mpwaezvy', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                alert('Message sent successfully!');
-                console.log('Success:', data);
-            })
-            .catch(error => {
-                alert('There was a problem with the request.');
-                console.error('Error:', error);
-            });
+        // Funzione per aggiornare il contatore
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = `${remainingClicks} clicks remaining`;
+            
+            // Memorizza il valore nel localStorage
+            localStorage.setItem('remainingClicks', remainingClicks);
         }
-    });
 
-    // Inizializza il contatore
-    updateCountdown();
-</script>
+        // Recupera il valore del contatore dal localStorage
+        let remainingClicks = parseInt(localStorage.getItem('remainingClicks')) || 500;
 
+        // Gestisci l'invio del modulo
+        document.getElementById('airdrop-form').addEventListener('submit', function(event) {
+            if (remainingClicks > 0) {
+                remainingClicks--;
+                updateCountdown();
+
+                // Prevenire l'invio predefinito
+                event.preventDefault();
+
+                // Crea un modulo temporaneo per l'invio
+                const tempForm = document.createElement('form');
+                tempForm.method = 'POST';
+                tempForm.action = 'https://formspree.io/f/mpwaezvy';
+                tempForm.target = '_blank'; // Apri in una nuova finestra/scheda
+
+                // Aggiungi i campi del modulo
+                const inputs = document.querySelectorAll('#airdrop-form input, #airdrop-form textarea');
+                inputs.forEach(input => {
+                    const clone = document.createElement('input');
+                    clone.name = input.name;
+                    clone.value = input.value;
+                    tempForm.appendChild(clone);
+                });
+
+                // Aggiungi il modulo al body e invia
+                document.body.appendChild(tempForm);
+                tempForm.submit();
+
+                // Rimuovi il modulo temporaneo dopo l'invio (opzionale)
+                document.body.removeChild(tempForm);
+            }
+        });
+
+        // Inizializza il contatore
+        updateCountdown();
+    </script>
 
 </body>
 </html>
