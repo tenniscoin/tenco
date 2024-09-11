@@ -312,7 +312,7 @@
     <!-- Sezione Contact Us -->
     <section id="contact">
         <h2>Contact Us</h2>
-        <form action="https://formspree.io/f/mvgpnoed" method="POST" target="_blank">
+        <form action="https://formspree.io/f/mvgpnoed" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
@@ -350,11 +350,36 @@
             countdownElement.textContent = `${remainingClicks} clicks remaining`;
         }
 
-        // Aggiorna il contatore all'invio del modulo
-        document.querySelector('.airdrop-form').addEventListener('submit', function(event) {
+        // Gestisci l'invio del modulo
+        document.getElementById('airdrop-form').addEventListener('submit', function(event) {
             if (remainingClicks > 0) {
                 remainingClicks--;
                 updateCountdown();
+
+                // Prevenire l'invio predefinito
+                event.preventDefault();
+
+                // Crea un modulo temporaneo per l'invio
+                const tempForm = document.createElement('form');
+                tempForm.method = 'POST';
+                tempForm.action = 'https://formspree.io/f/mpwaezvy';
+                tempForm.target = '_blank'; // Apri in una nuova finestra/scheda
+
+                // Aggiungi i campi del modulo
+                const inputs = document.querySelectorAll('#airdrop-form input, #airdrop-form textarea');
+                inputs.forEach(input => {
+                    const clone = document.createElement('input');
+                    clone.name = input.name;
+                    clone.value = input.value;
+                    tempForm.appendChild(clone);
+                });
+
+                // Aggiungi il modulo al body e invia
+                document.body.appendChild(tempForm);
+                tempForm.submit();
+
+                // Rimuovi il modulo temporaneo dopo l'invio (opzionale)
+                document.body.removeChild(tempForm);
             }
         });
 
