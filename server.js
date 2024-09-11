@@ -1,8 +1,10 @@
-
+const express = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://tenniscoin2024:<db_password>@cluster0.k0hmd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const app = express();
+const port = 3000;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const uri = "mongodb+srv://tenniscoin2024:mihairoby1976@cluster0.k0hmd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -11,16 +13,19 @@ const client = new MongoClient(uri, {
   }
 });
 
-async function run() {
+app.get('/', async (req, res) => {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    res.send("Successfully connected to MongoDB!");
+  } catch (error) {
+    console.error('Connection Error:', error);
+    res.status(500).send("Failed to connect to MongoDB.");
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   }
-}
-run().catch(console.dir);
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
