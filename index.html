@@ -317,6 +317,42 @@
                             background-color: #00332e; /* Colore di sfondo al passaggio del mouse */
                             transform: scale(1.1); /* Ingrandisce il pulsante al passaggio del mouse */
         }
+        /* Sezione Roadmap */
+#roadmap {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.roadmap-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 colonne di dimensioni uguali */
+    gap: 20px; /* Spazio tra le colonne */
+}
+
+.roadmap-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.roadmap-item h3 {
+    margin-top: 0;
+    color: #004d40; /* Colore del testo */
+}
+
+.roadmap-item p {
+    margin: 0;
+    color: #333;
+}
+
+/* Responsivo: a colonna unica su dispositivi mobili */
+@media (max-width: 768px) {
+    .roadmap-container {
+        grid-template-columns: 1fr; /* Una sola colonna su schermi più piccoli */
+    }
+}
+
 
     </style>
 </head>
@@ -447,25 +483,38 @@ But we don’t stop there. TennisCoin also supports the building and improvement
 </section>
 
     <!-- Sezione Roadmap -->
-    <section id="roadmap">
-        <h2>Roadmap</h2>
-        <h3>1. Phase One</h3>
-        <p>Creation of the coin in Q4 2024.</p>
-        <h3>2. Phase Two</h3>
-        <p>Sale of 50% of TennisCoin in Q1 2025.</p>
-        <h3>3. Phase Three</h3>
-        <p>Airdrop of 20% in Q4 2024.</p>
-        <h3>4. Phase Four</h3>
-        <p>Collaborations with international federations and various clubs in multiple countries to identify talented youth with limited opportunities in Q2+Q3 2025.</p>
-        <h3>5. Phase Five</h3>
-        <p>Grant scholarships to support tennis practice and participation in national and international tournaments.</p>
-    </section>
+<section id="roadmap">
+    <h2>Roadmap</h2>
+    <div class="roadmap-container">
+        <div class="roadmap-item">
+            <h3>1. Phase One</h3>
+            <p>Creation of the token and the infrastructure for ensuring the token's long-term sustainability and stability in Q4 2024.</p>
+        </div>
+        <div class="roadmap-item">
+            <h3>2. Phase Two</h3>
+            <p>Sale of 50% of TennisCoin in Q1 2025.</p>
+        </div>
+        <div class="roadmap-item">
+            <h3>3. Phase Three</h3>
+            <p>Airdrop of 20% in Q2 2025.</p>
+        </div>
+        <div class="roadmap-item">
+            <h3>4. Phase Four</h3>
+            <p>Collaborations with international federations and various clubs in multiple countries to identify talented youth with limited opportunities in Q2+Q3 2025.</p>
+        </div>
+        <div class="roadmap-item">
+            <h3>5. Phase Five</h3>
+            <p>Grant scholarships to support tennis practice and participation in national and international tournaments.</p>
+        </div>
+    </div>
+</section>
+
 
     <!-- Sezione Airdrop -->
     <section id="airdrop" class="airdrop">
         <h2>Airdrop</h2>
         <h3>How to Participate</h3>
-        <p>Participating in our airdrop is easy! Only the first 500 participants will be eligible. Just fill out the form below to register. Ensure that you provide accurate information to be eligible for the airdrop.</p>
+        <p>Participating in our airdrop is easy! Only the first 500 participants will be eligible. Just fill out the form below to register. Ensure that you provide accurate information to be eligible for the airdrop. The airdrop will begin on May 1, 2025.</p>
         
         <!-- Contatore dei clic -->
         <div class="countdown" id="countdown">500 clicks remaining</div>
