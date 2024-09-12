@@ -8,8 +8,9 @@
     <style>
 
         h1, h2, h3 {
-          scroll-margin-top: 60px; /* Modifica in base all'altezza effettiva della tua barra di navigazione */
+            scroll-margin-top: 80px; /* Modifica in base all'altezza effettiva della tua barra di navigazione */
         }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -21,6 +22,7 @@
             align-items: center;
             text-align: center; /* Assicura che il testo sia centrato */
         }
+
         nav {
             background-color: #004d40; /* Original dark green */
             color: white;
@@ -35,12 +37,14 @@
             flex-wrap: wrap;
             justify-content: space-around;
         }
+
         nav a {
             color: white;
             margin: 0 15px;
             text-decoration: none;
             font-size: 1rem;
         }
+
         nav #buy-button {
             background-color: #e91e63; /* Pink color for the Buy button */
             padding: 1px 15px; /* Ridotto il padding per uniformare la dimensione */
@@ -55,6 +59,7 @@
         nav #buy-button:hover {
             background-color: #c2185b; /* Darker pink on hover */
         }
+
         section {
             padding: 20px;
             text-align: center;
@@ -63,19 +68,27 @@
             align-items: center;
             flex-direction: column;
             min-height: 80vh;
-            margin-top: 80px; /* Assicurati che questo valore sia sufficientemente grande per non coprire il testo */
-                    }
+            margin-top: 100px; /* Aumenta il margine per compensare l'altezza della barra di navigazione */
+        }
+
+        section h1, section h2, section h3 {
+            padding-top: 60px; /* Aggiungi padding per distanziare i titoli dalla barra di navigazione */
+        }
+
         h1, h2 {
             color: #004d40; /* Original dark green */
         }
+
         ul {
             padding-left: 0;
             list-style-position: inside;
             text-align: left;
         }
+
         li {
             margin-bottom: 10px;
         }
+
         form {
             max-width: 90%px;
             margin: 0 auto;
@@ -83,6 +96,7 @@
             flex-direction: column;
             align-items: center;
         }
+
         form input, form textarea {
             width: 100%;
             padding: 10px;
@@ -90,6 +104,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+
         form button {
             padding: 10px 20px;
             background-color: #004d40; /* Original dark green */
@@ -99,20 +114,24 @@
             cursor: pointer;
             margin-bottom: 20px; /* Space between button and footer */
         }
+
         form button:hover {
             background-color: #00332e; /* Darker shade of dark green */
         }
+
         .image-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
         }
+
         .image-container img {
             width: 20%; /* Dimensione dell'immagine al 20% su schermi grandi (PC) */
             display: block;
             margin: 0 auto; /* Centra l'immagine */
         }
+
         footer {
             display: flex;
             flex-direction: column; /* Cambia a colonna per un allineamento più semplice */
@@ -127,6 +146,7 @@
             left: 0;
             box-sizing: border-box; /* Assicura che il padding non influisca sulla larghezza totale */
          }
+
          .footer-left, .footer-right, .footer-center {
              display: flex;
              justify-content: center;
@@ -134,66 +154,72 @@
              width: 100%;
              margin: 5px 0;
          }
+
          .footer-center {
              gap: 15px;
          }
+
          .footer-left p, .footer-center a {
              margin: 0;
              padding: 0;
          }
+
          .footer-center a {
              color: white;
              margin: 0 10px;
              text-decoration: none;
          }
+
          .footer-center a:hover {
              text-decoration: underline;
          }
+
         .social-icons {
             font-size: 18px;
             margin: 0 5px;
             color: white; /* Match footer text color */
         }
+
         .privacy-links {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
         }
+
         .privacy-links a {
             color: white;
             text-decoration: none;
         }
+
         .privacy-links a:hover {
             text-decoration: underline;
         }
+
         .tokenomics, .updates-news, .airdrop {
             max-width: 800px;
             text-align: left;
             margin: 20px auto;
         }
+
         .coming-soon {
             font-size: 36px;
             color: #004d40;
             font-weight: bold;
         }
+
         .airdrop-form input, .airdrop-form button {
             margin: 10px 0;
         }
+
         .countdown {
             font-size: 24px;
             color: #e91e63; /* Pink color for the countdown */
             font-weight: bold;
         }
 
-         /* Mobile Styles */
+        /* Mobile Styles */
         @media (max-width: 768px) {
-            h1, h2, h3 {
-                scroll-margin-top: 80px; /* Aumenta l'offset su dispositivi mobili se la barra di navigazione è più alta */
-            }
-                padding-top: 80px; /* Adatta questo valore se la barra di navigazione mobile ha un'altezza diversa */
-                margin-top: -80px; /* Compensa il padding-top per dispositivi mobili */
-            }
             nav a {
                 margin: 5px 10px;
                 font-size: 0.9rem;
@@ -201,7 +227,7 @@
 
             section {
                 padding: 15px;
-                margin-top: 80px;
+                margin-top: 120px; /* Aumenta il margine su dispositivi mobili */
             }
 
             form button {
@@ -214,28 +240,26 @@
                font-size: 0.75rem; /* Riduci la dimensione del font per dispositivi mobili */
             }
 
-           .footer-left, .footer-right, .footer-center {
+            .footer-left, .footer-right, .footer-center {
                margin: 2px 0; /* Mantieni il margine ridotto */
             }
 
-          .footer-center {
-              gap: 8px; /* Riduci il gap tra gli elementi del centro su mobile */
+            .footer-center {
+                gap: 8px; /* Riduci il gap tra gli elementi del centro su mobile */
             }
-                 
+
             .image-container img {
-              width: 40%; /* Dimensione dell'immagine più grande su dispositivi mobili */
+                width: 40%; /* Dimensione dell'immagine più grande su dispositivi mobili */
             }
-            
         }
 
-            /* Larger screens */
-            @media (min-width: 769px) {
+        /* Larger screens */
+        @media (min-width: 769px) {
             .image-container img {
                 max-width: 60%;
             }
         }
-            
-            
+
     </style>
 </head>
 <body>
