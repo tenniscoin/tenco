@@ -432,7 +432,49 @@
                          border-radius: 8px; /* Arrotondamento degli angoli del container */
                          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunta di un'ombra */
         }
-      
+        /* Stile per la sezione principale */
+.home-section {
+    position: relative;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Stile per il contenitore del contenuto */
+.content-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Stile per le immagini a sinistra e a destra */
+.images-left,
+.images-right {
+    position: absolute;
+    top: 20px; /* Allinea le immagini verticalmente con il contenuto */
+    width: 20%; /* Larghezza delle colonne delle immagini */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spazio tra le immagini */
+}
+
+.images-left {
+    left: 0; /* Posiziona a sinistra */
+}
+
+.images-right {
+    right: 0; /* Posiziona a destra */
+}
+
+/* Stile per le immagini */
+.image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -449,22 +491,22 @@
         <a href="https://pancakeswap.finance/swap?outputCurrency=0x263F4d28F73Be9848BD6D2338dac3d37D07B9DcB" id="buy-button" target="_blank" rel="noopener noreferrer">Buy TENCO</a>
     </nav>
 
-    <!-- Sezione Home -->
-<section id="home">
-    <!-- Container per tutta la sezione -->
-    <div class="container">
+ <!-- Sezione Home -->
+<section id="home" class="home-section">
+    <!-- Contenuto principale -->
+    <div class="content-container">
         <h1 id="welcome-text">Welcome to TennisCoin (TENCO)</h1>
         
-        <!-- Contenitore per l'immagine -->
+        <!-- Contenitore per l'immagine principale -->
         <div class="image-container">
             <img src="tenniscoin.jpg" alt="TennisCoin Image">
         </div>
 
         <h2 id="section1-title">What is TennisCoin?</h2>
-        <p id="section1-text">TennisCoin (TENCO) represents more than just a cutting-edge utility token—it embodies a transformative force poised to revolutionize the tennis world. Crafted with the vision of redefining the landscape of the sport, TennisCoin is designed to be a catalyst for the empowerment and development of the next generation of tennis stars...</p>
+        <p id="section1-text">TennisCoin (TENCO) represents more than just a cutting-edge utility token—it embodies a transformative force poised to revolutionize the tennis world. Crafted with the vision of redefining the landscape of the sport, TennisCoin is designed to be a catalyst for the empowerment and development of the next generation of tennis stars. By investing in TennisCoin, you’re not merely participating in a financial transaction; you’re making a profound and tangible impact on the lives of young athletes. Your investment provides them with critical resources, comprehensive support, and invaluable opportunities to cultivate their skills and achieve their full potential on the global stage. However, the advantages of holding TennisCoin extend far beyond the realm of philanthropy. As a TennisCoin holder, you gain exclusive access to a vast and interconnected network that spans the entire tennis ecosystem. This includes entry to elite training programs, personalized coaching sessions, and rare behind-the-scenes experiences at major tournaments—experiences that are typically reserved for a select few. You’ll have the privilege to connect with like-minded enthusiasts, share insights with rising tennis talents, and immerse yourself in the excitement of premier events around the world. TennisCoin also opens doors to a host of VIP privileges, such as early access to limited-edition merchandise, exclusive invitations to player meet-and-greets, and insider opportunities within the sports industry that are otherwise out of reach. These unique benefits offer you an unparalleled way to engage with the sport you love, while also contributing to its future. By holding TennisCoin, you’re not just a spectator; you’re an integral part of the tennis community, actively shaping the sport’s evolution and enjoying a diverse array of memorable and valuable experiences. TennisCoin is more than a token; it’s your gateway to becoming a central figure in the vibrant world of tennis, combining your passion for the sport with the opportunity to make a lasting difference.</p>
         
         <h2 id="section2-title">The Vision of TennisCoin</h2>
-        <p id="section2-text">Our vision is clear, yet deeply ambitious: to break down the barriers that prevent children and teenagers from all walks of life from accessing the world of tennis, no matter their economic or social circumstances...</p>
+        <p id="section2-text">Our vision is clear, yet deeply ambitious: to break down the barriers that prevent children and teenagers from all walks of life from accessing the world of tennis, no matter their economic or social circumstances. We believe that talent should never be restricted by financial limitations or lack of resources, and that every young person deserves the chance to chase their dreams on the court. At the core of this transformative mission is TennisCoin, a powerful tool designed to create real, lasting change. Through TennisCoin, we are able to channel essential financial resources directly into youth development programs, offering not only the training and mentorship that young athletes need but also providing scholarships to ensure that no promising talent is left behind due to financial hardship. But we don’t stop there. TennisCoin also supports the building and improvement of tennis infrastructure in underserved communities, ensuring that children and teenagers have access to proper facilities where they can train, compete, and grow. Whether it’s refurbishing courts, providing equipment, or funding coaching programs, TennisCoin is committed to creating sustainable, community-based solutions that help young players flourish. Our goal isn’t just to open the door to tennis—it’s to empower the next generation to walk through it, equipped with the skills, confidence, and opportunities they need to succeed. With TennisCoin, we’re leveling the playing field and ensuring that tennis becomes a sport where talent, passion, and hard work are the only requirements for success, not the ability to pay.</p>
 
         <h2 id="section3-title">Features of TennisCoin</h2>
         <ul id="section3-list">
@@ -481,8 +523,31 @@
             <li><strong>10% Reserved for the Team:</strong> 10% of the tokens will be reserved for our team members as an incentive for their ongoing commitment to the project's development. These tokens will be subject to a vesting period to ensure project stability.</li>
             <li><strong>20% Future Development:</strong> 20% of the tokens will be allocated for the future growth and development of the project, including improvements to the platform and new initiatives.</li>
         </ul>
-    </div> <!-- Chiusura del container -->
+    </div> <!-- Chiusura del content-container -->
+
+    <!-- Immagini esterne -->
+    <div class="images-left">
+        <div class="image">
+            <img src="ragazzi_1.jpeg" alt="Left Image 1">
+        </div>
+        <div class="image">
+            <img src="ragazzi_2.jpeg" alt="Left Image 2">
+        </div>
+    </div>
+
+    <div class="images-right">
+        <div class="image">
+            <img src="ragazzi_3.jpeg" alt="Right Image 1">
+        </div>
+        <div class="image">
+            <img src="ragazzi_4.jpeg" alt="Right Image 2">
+        </div>
+    </div>
 </section>
+
+
+
+
 
 
     <!-- Sezione Tokenomics -->
