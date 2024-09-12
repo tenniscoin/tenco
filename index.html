@@ -477,6 +477,23 @@
                   height: auto;
                   border-radius: 8px;
         }
+       
+ .tokenomics-images {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Spazio tra le immagini e il resto del contenuto */
+}
+
+.image-left,
+.image-right {
+    width: 45%; /* Dimensione delle immagini, regola come necessario */
+}
+
+.image-left img,
+.image-right img {
+    width: 100%;
+    border-radius: 8px; /* Arrotondamento degli angoli */
+}
 
 
     </style>
@@ -550,12 +567,21 @@
 </section>
 
     
-    <!-- Sezione Tokenomics -->
+ <!-- Sezione Tokenomics -->
 <section id="tokenomics" class="tokenomics">
     <!-- Container per la sezione Tokenomics -->
     <div class="container">
+        
+        <!-- Nuove immagini -->
+        <div class="tokenomics-images">
+            <div class="image-left">
+                <img src="roland_garros.jpeg" alt="Tokenomics Left Image">
+            </div>
+            <div class="image-right">
+                <img src="us_open.jpeg" alt="Tokenomics Right Image">
+            </div>
+        </div>
         <h2>TennisCoin Tokenomics</h2>
-
         <h3>1. Token Distribution</h3>
         <p>The distribution of TennisCoin is designed to ensure balanced and sustainable growth for the project. Tokens will be distributed as follows:</p>
         <ul>
