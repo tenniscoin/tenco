@@ -102,8 +102,9 @@
             margin-top: 20px;
         }
         .image-container img {
-            max-width: 10%; /* Set max width for mobile */
-            height: auto;
+            width: 20%; /* Dimensione dell'immagine al 20% su schermi grandi (PC) */
+            display: block;
+            margin: 0 auto; /* Centra l'immagine */
         }
         footer {
             display: flex;
@@ -201,6 +202,11 @@
                 flex-direction: column;
                 padding: 10px;
             }
+
+            .image-container img {
+              width: 40%; /* Dimensione dell'immagine più grande su dispositivi mobili */
+            }
+
         }
 
         /* Larger screens */
