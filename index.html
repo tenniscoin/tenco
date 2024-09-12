@@ -204,10 +204,19 @@
             }
 
             footer {
-                flex-direction: column;
-                padding: 15px;
+               flex-direction: column; /* Mantieni la direzione colonna */
+               padding: 10px; /* Riduci leggermente il padding per dispositivi mobili */
+               font-size: 0.75rem; /* Riduci la dimensione del font per dispositivi mobili */
             }
 
+           .footer-left, .footer-right, .footer-center {
+               margin: 2px 0; /* Mantieni il margine ridotto */
+            }
+
+          .footer-center {
+              gap: 8px; /* Riduci il gap tra gli elementi del centro su mobile */
+            }
+                 
             .image-container img {
               width: 40%; /* Dimensione dell'immagine più grande su dispositivi mobili */
             }
