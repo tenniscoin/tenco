@@ -318,40 +318,76 @@
                             transform: scale(1.1); /* Ingrandisce il pulsante al passaggio del mouse */
         }
         /* Sezione Roadmap */
-#roadmap {
-    padding: 20px;
-    background-color: #f9f9f9;
-}
+        #roadmap {
+                  padding: 20px;
+                  background-color: #f9f9f9;
+        }
 
-.roadmap-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 colonne di dimensioni uguali */
-    gap: 20px; /* Spazio tra le colonne */
-}
+        .roadmap-container {
+                            display: grid;
+                            grid-template-columns: repeat(5, 1fr); /* 5 colonne di dimensioni uguali */
+                            gap: 20px; /* Spazio tra le colonne */
+        }
 
-.roadmap-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-}
+        .roadmap-item {
+                       background-color: #fff;
+                       border: 1px solid #ddd;
+                       padding: 10px;
+                       border-radius: 5px;
+        }
 
-.roadmap-item h3 {
-    margin-top: 0;
-    color: #004d40; /* Colore del testo */
-}
+        .roadmap-item h3 {
+                          margin-top: 0;
+                          color: #004d40; /* Colore del testo */
+        }
 
-.roadmap-item p {
-    margin: 0;
-    color: #333;
-}
+        .roadmap-item p {
+                         margin: 0;
+                         color: #333;
+        }
 
-/* Responsivo: a colonna unica su dispositivi mobili */
-@media (max-width: 768px) {
-    .roadmap-container {
-        grid-template-columns: 1fr; /* Una sola colonna su schermi più piccoli */
-    }
-}
+        /* Responsivo: a colonna unica su dispositivi mobili */
+        @media (max-width: 768px) {
+        .roadmap-container {
+                            grid-template-columns: 1fr; /* Una sola colonna su schermi più piccoli */
+        }
+     }
+
+       /* Sezione Fee Structure */
+       .fee-structure {
+                       padding: 20px;
+                       background-color: #f9f9f9;
+        }
+
+       .fee-container {
+                       display: grid;
+                       grid-template-columns: repeat(5, 1fr); /* 5 colonne di dimensioni uguali */
+                       gap: 20px; /* Spazio tra le colonne */
+        }
+
+       .fee-item {
+                  background-color: #fff;
+                  border: 1px solid #ddd;
+                  padding: 10px;
+                  border-radius: 5px;
+        }
+
+        .fee-item h3 {
+                      margin-top: 0;
+                      color: #004d40; /* Colore del testo */
+        }
+
+        .fee-item p, .fee-item ul {
+                                   margin: 0;
+                                   color: #333;
+        }
+
+        /* Responsivo: a colonna unica su dispositivi mobili */
+        @media (max-width: 768px) {
+        .fee-container {
+                        grid-template-columns: 1fr; /* Una sola colonna su schermi più piccoli */
+        }
+     }
 
 
     </style>
@@ -441,46 +477,58 @@ But we don’t stop there. TennisCoin also supports the building and improvement
     </section>
 
 <!-- Sezione Fee Structure -->
-<section id="fee-structure" class="tokenomics">
+<section id="fee-structure" class="fee-structure">
     <h2>Fee Structure</h2>
+    <div class="fee-container">
+        <div class="fee-item">
+            <h3>Original Fee Structure:</h3>
+            <ul>
+                <li><strong>5%</strong> of each transaction is added to the liquidity pool.</li>
+                <li><strong>7%</strong> of each transaction is distributed to token holders.</li>
+                <li><strong>5%</strong> of each transaction is sent to the receive address.</li>
+            </ul>
+        </div>
 
-    <h3>Original Fee Structure:</h3>
-    <ul>
-        <li><strong>5%</strong> of each transaction is added to the liquidity pool.</li>
-        <li><strong>7%</strong> of each transaction is distributed to token holders.</li>
-        <li><strong>5%</strong> of each transaction is sent to the receive address.</li>
-    </ul>
+        <div class="fee-item">
+            <h3>Fee Breakdown:</h3>
+            <ul>
+                <li><strong>Rewards to Holders:</strong> 7%</li>
+                <li><strong>Liquidity Tax:</strong> 5%</li>
+                <li><strong>Transaction Tax:</strong> 5%</li>
+            </ul>
+        </div>
 
-    <h3>Fee Breakdown:</h3>
-    <ul>
-        <li><strong>Rewards to Holders:</strong> 7%</li>
-        <li><strong>Liquidity Tax:</strong> 5%</li>
-        <li><strong>Transaction Tax:</strong> 5%</li>
-    </ul>
+        <div class="fee-item">
+            <h3>Updated Fee Structure:</h3>
+            <ul>
+                <li><strong>7%</strong> is the total transaction tax.</li>
+                <li><strong>2%</strong> is burned (removed from circulation).</li>
+                <li><strong>7%</strong> is distributed to token holders.</li>
+            </ul>
+        </div>
 
-    <h3>Updated Fee Structure:</h3>
-    <ul>
-        <li><strong>7%</strong> is the total transaction tax.</li>
-        <li><strong>2%</strong> is burned (removed from circulation).</li>
-        <li><strong>7%</strong> is distributed to token holders.</li>
-    </ul>
+        <div class="fee-item">
+            <h3>Example Transaction:</h3>
+            <p>If a user sends <strong>100 tokens</strong>:</p>
+            <ul>
+                <li><strong>84 tokens</strong> are received by the recipient.</li>
+                <li><strong>7 tokens</strong> are sent to the receive address.</li>
+                <li><strong>2 tokens</strong> are burned.</li>
+                <li><strong>7 tokens</strong> are distributed to token holders.</li>
+            </ul>
+        </div>
 
-    <h3>Example Transaction:</h3>
-    <p>If a user sends <strong>100 tokens</strong>:</p>
-    <ul>
-        <li><strong>84 tokens</strong> are received by the recipient.</li>
-        <li><strong>7 tokens</strong> are sent to the receive address.</li>
-        <li><strong>2 tokens</strong> are burned.</li>
-        <li><strong>7 tokens</strong> are distributed to token holders.</li>
-    </ul>
-
-    <h3>Updated Fee Breakdown:</h3>
-    <ul>
-        <li><strong>Rewards to Holders:</strong> 7%</li>
-        <li><strong>Burn Tax:</strong> 2%</li>
-        <li><strong>Transaction Tax:</strong> 7%</li>
-    </ul>
+        <div class="fee-item">
+            <h3>Updated Fee Breakdown:</h3>
+            <ul>
+                <li><strong>Rewards to Holders:</strong> 7%</li>
+                <li><strong>Burn Tax:</strong> 2%</li>
+                <li><strong>Transaction Tax:</strong> 7%</li>
+            </ul>
+        </div>
+    </div>
 </section>
+
 
     <!-- Sezione Roadmap -->
 <section id="roadmap">
@@ -529,9 +577,11 @@ But we don’t stop there. TennisCoin also supports the building and improvement
     </section>
 
     <!-- Sezione Updates and News -->
-    <section id="updates-news" class="updates-news">
-        <h2 class="coming-soon">Coming Soon</h2>
-    </section>
+<section id="updates-news" class="updates-news">
+    <h2>Updates and News</h2>
+    <h3 class="coming-soon">Coming Soon</h3>
+</section>
+
 
     <!-- Sezione About Us -->
     <section id="about">
