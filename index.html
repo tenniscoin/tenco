@@ -26,7 +26,28 @@
             font-size: 1rem; /* Dimensione del testo */
             color: #000000; /* Colore del testo */
         }
+       /* Allinea il contenuto degli elenchi a sinistra */
+        ul {
+            text-align: left;
+            max-width: 800px; 
+            margin: 0 auto 20px auto; /* Centra l'elenco */
+            padding-left: 20px;
+        }
 
+        /* Stile per i singoli elementi della lista */
+        ul li {
+               margin-bottom: 15px; /* Spazio tra gli elementi della lista */
+        }
+
+        /* Aggiungi un contenitore per sezioni */
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Allinea tutto il testo a sinistra */
+            max-width: 800px; /* Limita la larghezza per rendere il testo leggibile */
+            margin: 0 auto;
+            padding: 20px;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -189,7 +210,9 @@
          .footer-center a:hover {
              text-decoration: underline;
          }
-
+         footer p {
+             color: white; /* Imposta il colore del testo a bianco */
+         }
         .social-icons {
             font-size: 18px;
             margin: 0 5px;
