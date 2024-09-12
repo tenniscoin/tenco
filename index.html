@@ -298,6 +298,25 @@
                 max-width: 60%;
             }
         }
+        /* Stile per il pulsante "Torna su" */
+        .back-to-top {
+                      position: fixed;
+                      bottom: 20px; /* Distanza dal fondo della pagina */
+                      right: 20px; /* Distanza dal lato destro della pagina */
+                      background-color: #004d40; /* Colore di sfondo del pulsante */
+                      color: white; /* Colore del testo */
+                      padding: 10px 15px; /* Spaziatura interna */
+                      border-radius: 5px; /* Angoli arrotondati */
+                      text-decoration: none; /* Rimuove la sottolineatura */
+                      font-size: 18px; /* Dimensione del testo */
+                      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per effetto 3D */
+                      transition: background-color 0.3s, transform 0.3s; /* Transizione per l'effetto hover */
+        }
+
+        .back-to-top:hover {
+                            background-color: #00332e; /* Colore di sfondo al passaggio del mouse */
+                            transform: scale(1.1); /* Ingrandisce il pulsante al passaggio del mouse */
+        }
 
     </style>
 </head>
@@ -555,6 +574,9 @@ But we don’t stop there. TennisCoin also supports the building and improvement
         // Inizializza il contatore
         updateCountdown();
     </script>
-
+    <!-- Bottone "Torna su" -->
+    <a href="#" class="back-to-top" id="back-to-top">
+    ↑ 
+    </a>
 </body>
 </html>
