@@ -6,6 +6,11 @@
     <title>TennisCoin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+
+        h1, h2, h3 {
+          scroll-margin-top: 60px; /* Modifica in base all'altezza effettiva della tua barra di navigazione */
+       }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -38,13 +43,15 @@
         }
         nav #buy-button {
             background-color: #e91e63; /* Pink color for the Buy button */
-            padding: 10px 20px;
+            padding: 1px 15px; /* Ridotto il padding per uniformare la dimensione */
             border-radius: 5px;
             color: white;
             font-weight: bold;
             text-decoration: none;
             margin: 0;
+            font-size: 1rem; /* Imposta la stessa dimensione del font degli altri link */
         }
+
         nav #buy-button:hover {
             background-color: #c2185b; /* Darker pink on hover */
         }
@@ -56,7 +63,8 @@
             align-items: center;
             flex-direction: column;
             min-height: 80vh;
-            margin-top: 60px;
+            margin-top: 80px; /* Assicurati che questo valore sia sufficientemente grande per non coprire il testo */
+
         }
         h1, h2 {
             color: #004d40; /* Original dark green */
@@ -108,7 +116,7 @@
         }
         footer {
             display: flex;
-            flex-direction: row;
+            flex-direction: column; /* Cambia a colonna per un allineamento più semplice */
             justify-content: center;
             align-items: center;
             padding: 10px;
@@ -118,33 +126,30 @@
             position: fixed;
             bottom: 0;
             left: 0;
-        }
-        .footer-left, .footer-right {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin: 5px 0;
-        }
-        .footer-center {
+            box-sizing: border-box; /* Assicura che il padding non influisca sulla larghezza totale */
+         }
+         .footer-left, .footer-right, .footer-center {
              display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            width: 100%;
-        }
-        
-        .footer-left p, .footer-center a {
-            margin: 0;
-            padding: 0;
-        }
-        .footer-center a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .footer-center a:hover {
-            text-decoration: underline;
-        }
+             justify-content: center;
+             align-items: center;
+             width: 100%;
+             margin: 5px 0;
+         }
+         .footer-center {
+             gap: 15px;
+         }
+         .footer-left p, .footer-center a {
+             margin: 0;
+             padding: 0;
+         }
+         .footer-center a {
+             color: white;
+             margin: 0 10px;
+             text-decoration: none;
+         }
+         .footer-center a:hover {
+             text-decoration: underline;
+         }
         .social-icons {
             font-size: 18px;
             margin: 0 5px;
@@ -200,21 +205,22 @@
 
             footer {
                 flex-direction: column;
-                padding: 10px;
+                padding: 15px;
             }
 
             .image-container img {
               width: 40%; /* Dimensione dell'immagine più grande su dispositivi mobili */
             }
-
         }
 
-        /* Larger screens */
-        @media (min-width: 769px) {
+            /* Larger screens */
+            @media (min-width: 769px) {
             .image-container img {
                 max-width: 60%;
             }
-
+        }
+            
+            
     </style>
 </head>
 <body>
