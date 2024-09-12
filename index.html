@@ -66,7 +66,7 @@
             margin-bottom: 10px;
         }
         form {
-            max-width: 600px;
+            max-width: 90%;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -98,13 +98,13 @@
             margin-top: 20px;
         }
         .image-container img {
-            max-width: 10%; /* Reduced to 10% of the container width */
+             max-width: 20%; /* Set max width for mobile */
             height: auto;
         }
         footer {
             display: flex;
             justify-content: center;
-            padding: 20px;
+            padding: 10px;
             width: 100%;
             background-color: #004d40; /* Original dark green */
             color: white;
@@ -113,25 +113,27 @@
             left: 0;
             z-index: 1000;
             box-sizing: border-box;
-            flex-direction: row;
+            flex-direction: raw;
             align-items: center;
         }
         .footer-left {
-            flex: 1;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 5px 0;
         }
         .footer-center {
-            flex: 2;
-            text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
+            width: 100%;
         }
         .footer-right {
             display: flex;
-            align-items: center;
-            flex: 1;
-           justify-content: flex-end;
+            justify-content: center;
+            width: 100%;
+            margin: 5px 0;
         }
         .footer-left p, .footer-center a {
             margin: 0;
@@ -146,7 +148,7 @@
             text-decoration: underline;
         }
         .social-icons {
-            font-size: 20px;
+            font-size: 18px;
             margin: 0 5px;
             color: white; /* Match footer text color */
         }
@@ -181,6 +183,35 @@
             color: #e91e63; /* Pink color for the countdown */
             font-weight: bold;
         }
+       
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            nav a {
+                margin: 5px 10px;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 15px;
+                margin-top: 80px;
+            }
+
+            form button {
+                width: 100%; /* Ensure button takes full width on mobile */
+            }
+
+            footer {
+                flex-direction: column;
+                padding: 10px;
+            }
+ 
+             /* Larger screens */
+        @media (min-width: 769px) {
+            .image-container img {
+                max-width: 60%;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -203,7 +234,7 @@
         
         <!-- Contenitore per l'immagine -->
         <div class="image-container">
-            <img src="tenniscoin.jpg" alt="TennisCoin Image">
+            <img src="images/tenniscoin.jpg" alt="TennisCoin Image">
         </div>
 
         <h2 id="section1-title">What is TennisCoin?</h2>
