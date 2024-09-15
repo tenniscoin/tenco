@@ -48,18 +48,19 @@
             margin: 0 auto;
             padding: 20px;
         }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center; /* Assicura che il testo sia centrato */
-        }
+       html, body {
+    height: 100%; /* Assicura che il body e l'html occupino tutta l'altezza del viewport */
+    margin: 0; /* Rimuove margini esterni predefiniti */
 
+       body {
+    display: flex;
+    flex-direction: column; /* Dispone il contenuto in una colonna */
+    justify-content: space-between; /* Spinge il footer verso il basso */
+    margin: 0; /* Rimuove margini esterni predefiniti */
+}
+main {
+    flex: 1; /* Permette al contenuto principale di espandersi per occupare lo spazio rimanente */
+}
         nav {
             background-color: #004d40; /* Original dark green */
             color: white;
@@ -169,71 +170,72 @@
             margin: 0 auto; /* Centra l'immagine */
         }
 
-        footer {
-            display: flex;
-            flex-direction: column; /* Cambia a colonna per un allineamento più semplice */
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            background-color: #004d40; /* Original dark green */
-            color: white;
-            width: 100%;
-            position: flex;
-            bottom: 0;
-            left: 0;
-            box-sizing: border-box; /* Assicura che il padding non influisca sulla larghezza totale */
-         }
+       footer {
+    display: flex;
+    flex-direction: column; /* Cambia a colonna per un allineamento più semplice */
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #004d40; /* Original dark green */
+    color: white;
+    width: 100%;
+    position: relative; /* Assicura che il footer rimanga al suo posto */
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box; /* Assicura che il padding non influisca sulla larghezza totale */
+    margin: 0; /* Rimuove margini esterni */
+}
 
-         .footer-left, .footer-right, .footer-center {
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             width: 100%;
-             margin: 5px 0;
-         }
 
-         .footer-center {
-             gap: 15px;
-         }
+.footer-left, .footer-right, .footer-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+}
 
-         .footer-left p, .footer-center a {
-             margin: 0;
-             padding: 0;
-         }
+.footer-left p, .footer-center a {
+    margin: 0;
+    padding: 0;
+}
 
-         .footer-center a {
-             color: white;
-             margin: 0 10px;
-             text-decoration: none;
-         }
+.footer-center a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
 
-         .footer-center a:hover {
-             text-decoration: underline;
-         }
-         footer p {
-             color: white; /* Imposta il colore del testo a bianco */
-         }
-        .social-icons {
-            font-size: 18px;
-            margin: 0 5px;
-            color: white; /* Match footer text color */
-        }
+.footer-center a:hover {
+    text-decoration: underline;
+}
 
-        .privacy-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
+footer p {
+    color: white; /* Imposta il colore del testo a bianco */
+}
 
-        .privacy-links a {
-            color: white;
-            text-decoration: none;
-        }
+.social-icons {
+    font-size: 18px;
+    margin: 0 5px;
+    color: white; /* Match footer text color */
+}
 
-        .privacy-links a:hover {
-            text-decoration: underline;
-        }
+.privacy-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.privacy-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.privacy-links a:hover {
+    text-decoration: underline;
+}
+
 
         .tokenomics, .updates-news, .airdrop {
             max-width: 800px;
@@ -496,6 +498,73 @@
         }
 
 
+/* Stile per la sezione About Us */
+.about-section {
+    position: relative; /* Posiziona il contenitore relativamente */
+    padding: 20px;
+    text-align: center;
+}
+
+.container-about {
+    position: relative; /* Contenitore relativo per le immagini posizionate assolutamente */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9; /* Colore di sfondo per il contenitore */
+    border-radius: 10px; /* Angoli arrotondati per il contenitore */
+    z-index: 1; /* Assicura che il contenitore sia sopra le immagini */
+    box-sizing: border-box; /* Include il padding e il bordo nelle dimensioni totali del contenitore */
+}
+
+.images-left, .images-right {
+    position: absolute;
+    z-index: 2; /* Assicura che le immagini siano sopra il contenitore */
+}
+
+.images-left {
+    top: -50px; /* Sposta l'immagine sopra il contenitore */
+    left: 0; /* Allinea l'immagine al bordo sinistro del contenitore */
+    margin-left: 20px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
+}
+
+.images-right {
+    top: -50px; /* Sposta l'immagine sopra il contenitore */
+    right: 0; /* Allinea l'immagine al bordo destro del contenitore */
+}
+
+.image-left, .image-right {
+    width: 150px; /* Dimensioni delle immagini */
+    height: auto;
+}
+
+.image-left img, .image-right img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Angoli arrotondati */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+.image-info {
+    text-align: center;
+    margin-top: 10px; /* Spazio sopra il testo */
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 5px; /* Spazio sotto il nome */
+}
+
+.role {
+    font-style: italic;
+    color: #555; /* Colore per il ruolo */
+}
+
+@media (max-width: 768px) {
+    .image-left, .image-right {
+        width: 120px; /* Dimensioni delle immagini su schermi piccoli */
+    }
+}
+       
     </style>
 </head>
 <body>
@@ -511,6 +580,7 @@
         <a href="#contact" id="nav-contact">Contact Us</a>
         <a href="https://www.dextools.io/app/en/bnb/pair-explorer/0x53aaa1238e62f8008e105896682931e6502b5e25?t=1726259856987" id="buy-button" target="_blank" rel="noopener noreferrer">Buy TENCO</a>
     </nav>
+    <main>
 
  <!-- Sezione Home -->
 <section id="home" class="home-section">
@@ -725,8 +795,29 @@
 </section>
 
 
-   <!-- Sezione About Us -->
-<section id="about">
+<!-- Sezione About Us -->
+<section id="about" class="about-section">
+    <!-- Immagini esterne -->
+    <div class="images-left">
+        <div class="image-left">
+            <img src="fotosinistra.jpg" alt="Left Image 1">
+            <div class="image-info">
+                <div class="name">Mihail Adrian Nicolaescu</div>
+                <div class="role">"<strong>National and International Tennis Coach"</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="images-right">
+        <div class="image-right">
+            <img src="fotodestra.jpeg" alt="Right Image 1">
+            <div class="image-info">
+                <div class="name">Péter Vargahegy</div>
+                <div class="role">"<strong>Professional expert in the cryptocurrency sector" </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Container per la sezione About Us -->
     <div class="container-about">
         <h2>About Us</h2>
@@ -737,6 +828,9 @@
         <p>Our team consists of tennis enthusiasts and experienced professionals in the cryptocurrency sector. Together, we work to make TennisCoin a reference point for supporting and growing youth tennis.</p>
     </div> <!-- Chiusura del container -->
 </section>
+
+
+
 
     <!-- Sezione Contact Us -->
 <section id="contact">
@@ -751,7 +845,7 @@
         </form>
     </div> <!-- Chiusura del container -->
 </section>
-
+ <main>
 
    <!-- Footer -->
    <footer>
