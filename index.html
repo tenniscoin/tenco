@@ -5,187 +5,189 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TennisCoin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
+    <<style>
 
-        h1, h2, h3 {
-            scroll-margin-top: 80px; /* Modifica in base all'altezza effettiva della tua barra di navigazione */
-        }
-        h2 {
-            text-align: center; /* Mantiene i titoli centrati */
-            color: #004d40; /* Verde scuro per i titoli */
-            margin-bottom: 20px;
-        }
-
-        p {
-            text-align: left; /* Allinea i paragrafi a sinistra */
-            margin-bottom: 20px; /* Spazio tra i paragrafi */
-            line-height: 1.6; /* Migliora la leggibilità */
-            max-width: auto; /* Limita la larghezza del testo per migliorare la leggibilità */
-            margin-left: auto;
-            margin-right: auto; /* Centra i paragrafi nel contenitore */
-            font-size: 1rem; /* Dimensione del testo */
-            color: #000000; /* Colore del testo */
-        }
-       /* Allinea il contenuto degli elenchi a sinistra */
-        ul {
-            text-align: left;
-            max-width: 800px; 
-            margin: 0 auto 20px auto; /* Centra l'elenco */
-            padding-left: 20px;
-        }
-
-        /* Stile per i singoli elementi della lista */
-        ul li {
-               margin-bottom: 15px; /* Spazio tra gli elementi della lista */
-        }
-
-        /* Aggiungi un contenitore per sezioni */
-        section {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* Allinea tutto il testo a sinistra */
-            max-width: 800px; /* Limita la larghezza per rendere il testo leggibile */
-            margin: 0 auto;
-            padding: 20px;
-        }
-       html, body {
-    height: 100%; /* Assicura che il body e l'html occupino tutta l'altezza del viewport */
-    margin: 0; /* Rimuove margini esterni predefiniti */
-
-       body {
-    display: flex;
-    flex-direction: column; /* Dispone il contenuto in una colonna */
-    justify-content: space-between; /* Spinge il footer verso il basso */
-    margin: 0; /* Rimuove margini esterni predefiniti */
+h1, h2, h3 {
+    scroll-margin-top: 80px; /* Margine per compensare la barra di navigazione */
 }
+
+h2 {
+    text-align: center;
+    color: #004d40; /* Verde scuro */
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: left;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    color: #000000;
+}
+
+ul {
+    text-align: left;
+    max-width: 800px; 
+    margin: 0 auto 20px auto;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 15px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+}
+
 main {
-    flex: 1; /* Permette al contenuto principale di espandersi per occupare lo spazio rimanente */
+    flex: 1;
 }
-        nav {
-            background-color: #004d40; /* Original dark green */
-            color: white;
-            padding: 10px;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        nav #buy-button {
-            background-color: #e91e63; /* Pink color for the Buy button */
-            padding: 1px 15px; /* Ridotto il padding per uniformare la dimensione */
-            border-radius: 5px;
-            color: white;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 0;
-            font-size: 1rem; /* Imposta la stessa dimensione del font degli altri link */
-        }
-
-        nav #buy-button:hover {
-            background-color: #c2185b; /* Darker pink on hover */
-        }
-
-        section {
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            min-height: 80vh;
-            margin-top: 100px; /* Aumenta il margine per compensare l'altezza della barra di navigazione */
-        }
-
-        section h1, section h2, section h3 {
-            padding-top: 60px; /* Aggiungi padding per distanziare i titoli dalla barra di navigazione */
-        }
-
-        h1, h2 {
-            color: #004d40; /* Original dark green */
-        }
-
-        ul {
-            padding-left: 0;
-            list-style-position: inside;
-            text-align: left;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        form {
-            max-width: 90%px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        form button {
-            padding: 10px 20px;
-            background-color: #004d40; /* Original dark green */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px; /* Space between button and footer */
-        }
-
-        form button:hover {
-            background-color: #00332e; /* Darker shade of dark green */
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .image-container img {
-            width: 20%; /* Dimensione dell'immagine al 20% su schermi grandi (PC) */
-            display: block;
-            margin: 0 auto; /* Centra l'immagine */
-        }
-
-       footer {
+nav {
+    background-color: #004d40;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     display: flex;
-    flex-direction: column; /* Cambia a colonna per un allineamento più semplice */
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav #buy-button {
+    background-color: #e91e63;
+    padding: 1px 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0;
+    font-size: 1rem;
+}
+
+nav #buy-button:hover {
+    background-color: #c2185b;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 80vh;
+    margin-top: 100px;
+}
+
+section h1, section h2, section h3 {
+    padding-top: 60px;
+}
+
+h1, h2 {
+    color: #004d40;
+}
+
+ul {
+    padding-left: 0;
+    list-style-position: inside;
+    text-align: left;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+form {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+form button:hover {
+    background-color: #00332e;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    width: 20%;
+    display: block;
+    margin: 0 auto;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #004d40; /* Original dark green */
+    background-color: #004d40;
     color: white;
     width: 100%;
-    position: relative; /* Assicura che il footer rimanga al suo posto */
+    position: relative;
     bottom: 0;
     left: 0;
-    box-sizing: border-box; /* Assicura che il padding non influisca sulla larghezza totale */
-    margin: 0; /* Rimuove margini esterni */
+    box-sizing: border-box;
+    margin: 0;
 }
-
 
 .footer-left, .footer-right, .footer-center {
     display: flex;
@@ -211,13 +213,13 @@ main {
 }
 
 footer p {
-    color: white; /* Imposta il colore del testo a bianco */
+    color: white;
 }
 
 .social-icons {
     font-size: 18px;
     margin: 0 5px;
-    color: white; /* Match footer text color */
+    color: white;
 }
 
 .privacy-links {
@@ -236,336 +238,232 @@ footer p {
     text-decoration: underline;
 }
 
-
-        .tokenomics, .updates-news, .airdrop {
-            max-width: 800px;
-            text-align: left;
-            margin: 20px auto;
-        }
-
-        .coming-soon {
-            font-size: 36px;
-            color: #004d40;
-            font-weight: bold;
-        }
-
-        .airdrop-form input, .airdrop-form button {
-            margin: 10px 0;
-        }
-
-        .countdown {
-            font-size: 24px;
-            color: #e91e63; /* Pink color for the countdown */
-            font-weight: bold;
-        }
-
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            nav a {
-                margin: 5px 10px;
-                font-size: 0.9rem;
-            }
-
-            section {
-                padding: 15px;
-                margin-top: 120px; /* Aumenta il margine su dispositivi mobili */
-            }
-
-            form button {
-                width: 100%; /* Ensure button takes full width on mobile */
-            }
-
-            footer {
-               flex-direction: column; /* Mantieni la direzione colonna */
-               padding: 10px; /* Riduci leggermente il padding per dispositivi mobili */
-               font-size: 0.75rem; /* Riduci la dimensione del font per dispositivi mobili */
-            }
-
-            .footer-left, .footer-right, .footer-center {
-               margin: 2px 0; /* Mantieni il margine ridotto */
-            }
-
-            .footer-center {
-                gap: 8px; /* Riduci il gap tra gli elementi del centro su mobile */
-            }
-
-            .image-container img {
-                width: 40%; /* Dimensione dell'immagine più grande su dispositivi mobili */
-            }
-        }
-
-        /* Larger screens */
-        @media (min-width: 769px) {
-            .image-container img {
-                max-width: 60%;
-            }
-        }
-        /* Stile per il pulsante "Torna su" */
-        .back-to-top {
-                      position: fixed;
-                      bottom: 20px; /* Distanza dal fondo della pagina */
-                      right: 20px; /* Distanza dal lato destro della pagina */
-                      background-color: #004d40; /* Colore di sfondo del pulsante */
-                      color: white; /* Colore del testo */
-                      padding: 10px 15px; /* Spaziatura interna */
-                      border-radius: 5px; /* Angoli arrotondati */
-                      text-decoration: none; /* Rimuove la sottolineatura */
-                      font-size: 18px; /* Dimensione del testo */
-                      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per effetto 3D */
-                      transition: background-color 0.3s, transform 0.3s; /* Transizione per l'effetto hover */
-        }
-
-        .back-to-top:hover {
-                            background-color: #00332e; /* Colore di sfondo al passaggio del mouse */
-                            transform: scale(1.1); /* Ingrandisce il pulsante al passaggio del mouse */
-        }
-        /* Sezione Roadmap */
-        #roadmap {
-                  padding: 20px;
-                  background-color: #f9f9f9;
-                  border-radius: 8px
-        }
-
-        .roadmap-container {
-                            display: grid;
-                            grid-template-columns: repeat(5, 1fr); /* 5 colonne di dimensioni uguali */
-                            gap: 20px; /* Spazio tra le colonne */
-        }
-
-        .roadmap-item {
-                       background-color: #fff;
-                       border: 1px solid #ddd;
-                       padding: 10px;
-                       border-radius: 5px;
-        }
-
-        .roadmap-item h3 {
-                          margin-top: 0;
-                          color: #004d40; /* Colore del testo */
-        }
-
-        .roadmap-item p {
-                         margin: 0;
-                         color: #333;
-        }
-
-        /* Responsivo: a colonna unica su dispositivi mobili */
-        @media (max-width: 768px) {
-        .roadmap-container {
-                            grid-template-columns: 1fr; /* Una sola colonna su schermi più piccoli */
-        }
-     }
-
-       /* Sezione Fee Structure */
-       .fee-structure {
-                       padding: 20px;
-                       background-color: #f9f9f9;
-                       border-radius: 8px
-        }
-
-       .fee-container {
-                       display: grid;
-                       grid-template-columns: repeat(5, 1fr); /* 5 colonne di dimensioni uguali */
-                       gap: 20px; /* Spazio tra le colonne */
-                       border-radius: 8px
-        }
-
-       .fee-item {
-                  background-color: #fff;
-                  border: 1px solid #ddd;
-                  padding: 10px;
-                  border-radius: 5px;
-        }
-
-        .fee-item h3 {
-                      margin-top: 0;
-                      color: #004d40; /* Colore del testo */
-        }
-
-        .fee-item p, .fee-item ul {
-                                   margin: 0;
-                                   color: #333;
-        }
-
-        /* Responsivo: a colonna unica su dispositivi mobili */
-        @media (max-width: 768px) {
-        .fee-container {
-                        grid-template-columns: 1fr; /* Una sola colonna su schermi più piccoli */
-        }
-     }
-        .container {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    padding: 20px;
-                    background-color: #f9f9f9; /* Nuovo colore di background */
-                    border-radius: 8px
-        }
-
-        .image-container {
-                          text-align: center;
-                          margin-bottom: 20px;
-        }
-
-        #section1-text, #section2-text, #section3-list, #section4-list {
-                          text-align: left;
-        }
-        /* Stile per il container specifico della sezione Updates and News */
-        .container-updates {
-                        max-width: 1200px;
-                        margin: 0 auto;
-                        padding: 20px;
-                        background-color: #f9f9f9; /* Colore di sfondo */
-                        text-align: center; /* Centrare il testo */
-                        border-radius: 8px
-        }
-
-        /* Stile per il container specifico della sezione About Us */
-        .container-about {
-                          max-width: 1200px;
-                          margin: 0 auto;
-                          padding: 20px;
-                          background-color: #f9f9f9; /* Colore di sfondo */
-                          text-align: left; /* Allineamento del testo a sinistra */
-                          border-radius: 8px; /* Arrotondamento degli angoli del container */
-                          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunta di un'ombra */
-        }
-        /* Stile per il container della sezione Contact Us */
-        .container-contact {
-                         max-width: 1200px;
-                         margin: 0 auto;
-                         padding: 20px;
-                         background-color: #f9f9f9; /* Colore di sfondo */
-                         text-align: center; /* Allineamento del testo al centro */
-                         border-radius: 8px; /* Arrotondamento degli angoli del container */
-                         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunta di un'ombra */
-        }
-
-        /* Stile per la sezione principale */
-        .home-section {
-        position: relative;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 8px
-        }
-
-        /* Stile per il contenitore del contenuto */
-        .content-container {
-                  position: relative;
-                  z-index: 1;
-        }
-
-        /* Stile per le immagini a sinistra e a destra */
-        .images-left,
-        .images-right {
-                 position: absolute;
-                 top: 20px; /* Allinea le immagini verticalmente con il contenuto */
-                 width: 20%; /* Larghezza delle colonne delle immagini */
-                 display: flex;
-                 flex-direction: column;
-                 gap: 20px; /* Spazio tra le immagini */
-        }
-
-        .images-left {
-                 left: 0; /* Posiziona a sinistra */
-        }
-
-        .images-right {
-                 right: 0; /* Posiziona a destra */
-        }
-
-        /* Stile per le immagini */
-        .image img {
-                  width: 100%;
-                  height: auto;
-                  border-radius: 8px;
-        }
-       
-        .tokenomics-images {
-                  display: flex;
-                  justify-content: space-between;
-                  margin-bottom: 20px; /* Spazio tra le immagini e il resto del contenuto */
-        }
-
-        .image-left,
-        .image-right {
-                  width: 45%; /* Dimensione delle immagini, regola come necessario */
-        }
-
-        .image-left img,
-        .image-right img {
-                  width: 100%;
-                  border-radius: 8px; /* Arrotondamento degli angoli */
-        }
-
-
-/* Stile per la sezione About Us */
-.about-section {
-    position: relative; /* Posiziona il contenitore relativamente */
-    padding: 20px;
-    text-align: center;
-}
-
-.container-about {
-    position: relative; /* Contenitore relativo per le immagini posizionate assolutamente */
+.tokenomics, .updates-news, .airdrop {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #f9f9f9; /* Colore di sfondo per il contenitore */
-    border-radius: 10px; /* Angoli arrotondati per il contenitore */
-    z-index: 1; /* Assicura che il contenitore sia sopra le immagini */
-    box-sizing: border-box; /* Include il padding e il bordo nelle dimensioni totali del contenitore */
+    text-align: left;
+    margin: 20px auto;
 }
 
-.images-left, .images-right {
-    position: absolute;
-    z-index: 2; /* Assicura che le immagini siano sopra il contenitore */
-}
-
-.images-left {
-    top: -50px; /* Sposta l'immagine sopra il contenitore */
-    left: 0; /* Allinea l'immagine al bordo sinistro del contenitore */
-    margin-left: 20px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
-}
-
-.images-right {
-    top: -50px; /* Sposta l'immagine sopra il contenitore */
-    right: 0; /* Allinea l'immagine al bordo destro del contenitore */
-}
-
-.image-left, .image-right {
-    width: 150px; /* Dimensioni delle immagini */
-    height: auto;
-}
-
-.image-left img, .image-right img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px; /* Angoli arrotondati */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-}
-
-.image-info {
-    text-align: center;
-    margin-top: 10px; /* Spazio sopra il testo */
-}
-
-.name {
+.coming-soon {
+    font-size: 36px;
+    color: #004d40;
     font-weight: bold;
-    margin-bottom: 5px; /* Spazio sotto il nome */
 }
 
-.role {
-    font-style: italic;
-    color: #555; /* Colore per il ruolo */
+.airdrop-form input, .airdrop-form button {
+    margin: 10px 0;
+}
+
+.countdown {
+    font-size: 24px;
+    color: #e91e63;
+    font-weight: bold;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    nav a {
+        margin: 5px 10px;
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 15px;
+        margin-top: 120px;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 10px;
+        font-size: 0.75rem;
+    }
+
+    .footer-left, .footer-right, .footer-center {
+        margin: 2px 0;
+    }
+
+    .footer-center {
+        gap: 8px;
+    }
+
+    .image-container img {
+        width: 40%;
+    }
+}
+
+/* Larger screens */
+@media (min-width: 769px) {
+    .image-container img {
+        max-width: 60%;
+    }
+}
+
+/* Roadmap Section */
+#roadmap {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.roadmap-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.roadmap-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.roadmap-item h3 {
+    margin-top: 0;
+    color: #004d40;
+}
+
+.roadmap-item p {
+    margin: 0;
+    color: #333;
 }
 
 @media (max-width: 768px) {
-    .image-left, .image-right {
-        width: 120px; /* Dimensioni delle immagini su schermi piccoli */
+    .roadmap-container {
+        grid-template-columns: 1fr;
     }
 }
-       
-    </style>
+
+/* Back-to-Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #004d40;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #00332e;
+    transform: scale(1.1);
+}
+
+/* Fee Structure Section */
+.fee-structure {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.fee-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    border-radius: 8px;
+}
+
+.fee-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.fee-item h3 {
+    margin-top: 0;
+    color: #004d40;
+}
+
+.fee-item p, .fee-item ul {
+    margin: 0;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .fee-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Image Sections */
+.images-left,
+.images-right {
+    position: absolute;
+    top: 20px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.images-left {
+    left: 0;
+}
+
+.images-right {
+    right: 0;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.tokenomics-images {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.image-left,
+.image-right {
+    width: 45%;
+}
+
+.image-left img,
+.image-right img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* About Section */
+.about-section {
+    position: relative;
+    padding: 20px;
+}
+
+.about-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('about_background_image.jpg');
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+</style>
 </head>
 <body>
 
