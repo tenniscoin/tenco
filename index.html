@@ -280,10 +280,15 @@ footer p {
                flex-direction: column; /* Mantieni la direzione colonna */
                padding: 10px; /* Riduci leggermente il padding per dispositivi mobili */
                font-size: 0.75rem; /* Riduci la dimensione del font per dispositivi mobili */
+               box-sizing: border-box; /* Include padding e bordo nella larghezza totale */
+               width: 100%; /* Assicura che il footer utilizzi la larghezza completa */
+
             }
 
             .footer-left, .footer-right, .footer-center {
                margin: 2px 0; /* Mantieni il margine ridotto */
+               width: 100%; /* Assicura che i contenuti del footer utilizzino la larghezza completa */
+
             }
 
             .footer-center {
