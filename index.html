@@ -462,7 +462,7 @@ footer p {
                  width: 20%; /* Larghezza delle colonne delle immagini */
                  display: flex;
                  flex-direction: column;
-                 gap: 20px; /* Spazio tra le immagini */
+                 gap: 120px; /* Spazio tra le immagini */
         }
 
         .images-left {
@@ -517,7 +517,7 @@ footer p {
 }
 
 .images-left, .images-right {
-    position: absolute;
+    position: flex;
     z-index: 2; /* Assicura che le immagini siano sopra il contenitore */
 }
 
@@ -562,6 +562,7 @@ footer p {
 @media (max-width: 768px) {
     .image-left, .image-right {
         width: 120px; /* Dimensioni delle immagini su schermi piccoli */
+     position: flex
     }
 }
        
