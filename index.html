@@ -313,6 +313,7 @@ footer p {
                       font-size: 18px; /* Dimensione del testo */
                       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per effetto 3D */
                       transition: background-color 0.3s, transform 0.3s; /* Transizione per l'effetto hover */
+                      z-index: 2
         }
 
         .back-to-top:hover {
@@ -512,24 +513,24 @@ footer p {
     padding: 20px;
     background: #f9f9f9; /* Colore di sfondo per il contenitore */
     border-radius: 10px; /* Angoli arrotondati per il contenitore */
-    z-index: 1; /* Assicura che il contenitore sia sopra le immagini */
+    z-index: 0; /* Assicura che il contenitore sia sopra le immagini */
     box-sizing: border-box; /* Include il padding e il bordo nelle dimensioni totali del contenitore */
 }
 
 .images-left, .images-right {
     position: absolute;
-    z-index: 2; /* Assicura che le immagini siano sopra il contenitore */
+    z-index: 1; /* Assicura che le immagini siano sopra il contenitore */
 }
 
 .images-left {
     top: -50px; /* Sposta l'immagine sopra il contenitore */
-    left: 0; /* Allinea l'immagine al bordo sinistro del contenitore */
+    left: 20px; /* Allinea l'immagine al bordo sinistro del contenitore */
     margin-left: 20px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
 }
 
 .images-right {
     top: -50px; /* Sposta l'immagine sopra il contenitore */
-    right: 0; /* Allinea l'immagine al bordo destro del contenitore */
+    right: 20px; /* Allinea l'immagine al bordo destro del contenitore */
 }
 
 .image-left, .image-right {
