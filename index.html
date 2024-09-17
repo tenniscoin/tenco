@@ -523,14 +523,14 @@ footer p {
 }
 
 .images-left {
-    top: -50px; /* Sposta l'immagine sopra il contenitore */
-    left: 0; /* Allinea l'immagine al bordo sinistro del contenitore */
+    top: -80px; /* Sposta l'immagine sopra il contenitore */
+    left: 0px; /* Allinea l'immagine al bordo sinistro del contenitore */
     margin-left: 20px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
 }
 
 .images-right {
-    top: -50px; /* Sposta l'immagine sopra il contenitore */
-    right: 0; /* Allinea l'immagine al bordo destro del contenitore */
+    top: -80px; /* Sposta l'immagine sopra il contenitore */
+    right: 0px; /* Allinea l'immagine al bordo destro del contenitore */
 }
 
 .image-left, .image-right {
@@ -562,8 +562,15 @@ footer p {
 
 @media (max-width: 768px) {
     .image-left, .image-right {
-        width: 120px; /* Dimensioni delle immagini su schermi piccoli */
+        width: 100px; /* Dimensioni delle immagini su schermi piccoli */
     }
+    .images-right {
+     right: 30px;
+    }
+    .images-left {
+   
+    left: 10px; /* Allinea l'immagine al bordo sinistro del contenitore */
+    margin-left: 20px; 
 }
        
     </style>
