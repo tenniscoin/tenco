@@ -162,7 +162,6 @@ main {
             justify-content: center;
             align-items: center;
             margin-top: 20px;
-            gap: 30px; /* Aumenta lo spazio tra le immagini */
         }
 
         .image-container img {
@@ -280,15 +279,10 @@ footer p {
                flex-direction: column; /* Mantieni la direzione colonna */
                padding: 10px; /* Riduci leggermente il padding per dispositivi mobili */
                font-size: 0.75rem; /* Riduci la dimensione del font per dispositivi mobili */
-               box-sizing: border-box; /* Include padding e bordo nella larghezza totale */
-               width: 100%; /* Assicura che il footer utilizzi la larghezza completa */
-
             }
 
             .footer-left, .footer-right, .footer-center {
                margin: 2px 0; /* Mantieni il margine ridotto */
-               width: 100%; /* Assicura che i contenuti del footer utilizzino la larghezza completa */
-
             }
 
             .footer-center {
@@ -484,7 +478,6 @@ footer p {
                   width: 100%;
                   height: auto;
                   border-radius: 8px;
-                  margin-bottom: 100px; /* Aggiunge spazio sotto ogni immagine */
         }
        
         .tokenomics-images {
@@ -529,19 +522,18 @@ footer p {
 }
 
 .images-left {
-   
+    top: -50px; /* Sposta l'immagine sopra il contenitore */
     left: 0; /* Allinea l'immagine al bordo sinistro del contenitore */
     margin-left: 20px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
 }
 
 .images-right {
-    
+    top: -50px; /* Sposta l'immagine sopra il contenitore */
     right: 0; /* Allinea l'immagine al bordo destro del contenitore */
-    margin-right: -50px; /* Spazio aggiuntivo a destra per evitare che l'immagine esca fuori */
 }
 
 .image-left, .image-right {
-    width: 100px; /* Dimensioni delle immagini */
+    width: 150px; /* Dimensioni delle immagini */
     height: auto;
 }
 
@@ -569,18 +561,11 @@ footer p {
 
 @media (max-width: 768px) {
     .image-left, .image-right {
-        width: 100px; /* Dimensioni delle immagini su schermi piccoli */
+        width: 120px; /* Dimensioni delle immagini su schermi piccoli */
     }
-    .images-right {
-    
-    right: 0; /* Allinea l'immagine al bordo destro del contenitore */
-    margin-right: 0px; /* Spazio aggiuntivo a destra per evitare che l'immagine esca fuori */
-}
 }
        
     </style>
-
-
 </head>
 <body>
 
