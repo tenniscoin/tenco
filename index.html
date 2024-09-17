@@ -58,6 +58,9 @@
     justify-content: space-between; /* Spinge il footer verso il basso */
     margin: 0; /* Rimuove margini esterni predefiniti */
 }
+main {
+    flex: 1; /* Permette al contenuto principale di espandersi per occupare lo spazio rimanente */
+}
         nav {
             background-color: #004d40; /* Original dark green */
             color: white;
@@ -528,12 +531,13 @@ footer p {
 .images-left {
     top: -50px; /* Sposta l'immagine sopra il contenitore */
     left: 0; /* Allinea l'immagine al bordo sinistro del contenitore */
-    margin-left: 20px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
+    margin-left: 30px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
 }
 
 .images-right {
     top: -50px; /* Sposta l'immagine sopra il contenitore */
     right: 0; /* Allinea l'immagine al bordo destro del contenitore */
+    margin-right: 10px; /* Spazio aggiuntivo a destra per evitare che l'immagine esca fuori */
 }
 
 .image-left, .image-right {
