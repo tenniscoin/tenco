@@ -313,7 +313,6 @@ footer p {
                       font-size: 18px; /* Dimensione del testo */
                       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per effetto 3D */
                       transition: background-color 0.3s, transform 0.3s; /* Transizione per l'effetto hover */
-                      z-index: 2
         }
 
         .back-to-top:hover {
@@ -459,11 +458,11 @@ footer p {
         .images-left,
         .images-right {
                  position: absolute;
-                 top: 120px; /* Allinea le immagini verticalmente con il contenuto */
+                 top: 20px; /* Allinea le immagini verticalmente con il contenuto */
                  width: 20%; /* Larghezza delle colonne delle immagini */
                  display: flex;
                  flex-direction: column;
-                 gap: 110px; /* Spazio tra le immagini */
+                 gap: 20px; /* Spazio tra le immagini */
         }
 
         .images-left {
@@ -513,24 +512,24 @@ footer p {
     padding: 20px;
     background: #f9f9f9; /* Colore di sfondo per il contenitore */
     border-radius: 10px; /* Angoli arrotondati per il contenitore */
-    z-index: 0; /* Assicura che il contenitore sia sopra le immagini */
+    z-index: 1; /* Assicura che il contenitore sia sopra le immagini */
     box-sizing: border-box; /* Include il padding e il bordo nelle dimensioni totali del contenitore */
 }
 
 .images-left, .images-right {
     position: absolute;
-    z-index: 1; /* Assicura che le immagini siano sopra il contenitore */
+    z-index: 2; /* Assicura che le immagini siano sopra il contenitore */
 }
 
 .images-left {
-    top: -80px; /* Sposta l'immagine sopra il contenitore */
-    left: 0px; /* Allinea l'immagine al bordo sinistro del contenitore */
+    top: -50px; /* Sposta l'immagine sopra il contenitore */
+    left: 0; /* Allinea l'immagine al bordo sinistro del contenitore */
     margin-left: 20px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
 }
 
 .images-right {
-    top: -80px; /* Sposta l'immagine sopra il contenitore */
-    right: 0px; /* Allinea l'immagine al bordo destro del contenitore */
+    top: -50px; /* Sposta l'immagine sopra il contenitore */
+    right: 0; /* Allinea l'immagine al bordo destro del contenitore */
 }
 
 .image-left, .image-right {
@@ -562,15 +561,8 @@ footer p {
 
 @media (max-width: 768px) {
     .image-left, .image-right {
-        width: 100px; /* Dimensioni delle immagini su schermi piccoli */
+        width: 120px; /* Dimensioni delle immagini su schermi piccoli */
     }
-    .images-right {
-     right: 40px;
-    }
-    .images-left {
-   
-    left: 10px; /* Allinea l'immagine al bordo sinistro del contenitore */
-    margin-left: 10px; 
 }
        
     </style>
