@@ -419,6 +419,16 @@ footer p {
                         border-radius: 8px
         }
 
+        /* Stile per il container specifico della sezione About Us */
+        .container-about {
+                          max-width: 1200px;
+                          margin: 0 auto;
+                          padding: 20px;
+                          background-color: #f9f9f9; /* Colore di sfondo */
+                          text-align: left; /* Allineamento del testo a sinistra */
+                          border-radius: 8px; /* Arrotondamento degli angoli del container */
+                          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunta di un'ombra */
+        }
         /* Stile per il container della sezione Contact Us */
         .container-contact {
                          max-width: 1200px;
@@ -452,7 +462,7 @@ footer p {
                  width: 20%; /* Larghezza delle colonne delle immagini */
                  display: flex;
                  flex-direction: column;
-                 gap: 120px; /* Spazio tra le immagini */
+                 gap: 20px; /* Spazio tra le immagini */
         }
 
         .images-left {
@@ -507,7 +517,7 @@ footer p {
 }
 
 .images-left, .images-right {
-    position: flex;
+    position: absolute;
     z-index: 2; /* Assicura che le immagini siano sopra il contenitore */
 }
 
@@ -537,8 +547,6 @@ footer p {
 .image-info {
     text-align: center;
     margin-top: 10px; /* Spazio sopra il testo */
-    width: auto;
-    height: auto;
 }
 
 .name {
@@ -553,16 +561,9 @@ footer p {
 
 @media (max-width: 768px) {
     .image-left, .image-right {
-        width: 100%;
-        position: relative;
+        width: 120px; /* Dimensioni delle immagini su schermi piccoli */
     }
-
-    .images-left, .images-right {
-        position: static; /* Riposiziona staticamente le immagini su schermi piccoli */
-        margin: 0 auto; /* Centra le immagini */
-        top: 0;
-    }
-   }
+}
        
     </style>
 </head>
