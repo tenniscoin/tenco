@@ -529,19 +529,19 @@ footer p {
 }
 
 .images-left {
-    top: -50px; /* Sposta l'immagine sopra il contenitore */
+   
     left: 0; /* Allinea l'immagine al bordo sinistro del contenitore */
-    margin-left: 30px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
+    margin-left: 20px; /* Spazio aggiuntivo a sinistra per evitare che l'immagine esca fuori */
 }
 
 .images-right {
-    top: -50px; /* Sposta l'immagine sopra il contenitore */
+    
     right: 0; /* Allinea l'immagine al bordo destro del contenitore */
-    margin-right: 10px; /* Spazio aggiuntivo a destra per evitare che l'immagine esca fuori */
+    margin-right: -50px; /* Spazio aggiuntivo a destra per evitare che l'immagine esca fuori */
 }
 
 .image-left, .image-right {
-    width: 150px; /* Dimensioni delle immagini */
+    width: 100px; /* Dimensioni delle immagini */
     height: auto;
 }
 
@@ -569,8 +569,13 @@ footer p {
 
 @media (max-width: 768px) {
     .image-left, .image-right {
-        width: 120px; /* Dimensioni delle immagini su schermi piccoli */
+        width: 110px; /* Dimensioni delle immagini su schermi piccoli */
     }
+    .images-right {
+    
+    right: 0; /* Allinea l'immagine al bordo destro del contenitore */
+    margin-right: 0px; /* Spazio aggiuntivo a destra per evitare che l'immagine esca fuori */
+}
 }
        
     </style>
