@@ -574,6 +574,71 @@ footer p {
     transform: translateX(10px);
 }
 }
+    
+   /* Stile per la sezione del bounty program */
+    .bounty-program {
+    background-color: #f9f9f9; /* Colore di sfondo coerente con il resto del sito */
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Stile per il contenitore */
+.container-bounty {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Stile per i titoli */
+.bounty-program h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #004d40; /* Colore del testo coerente */
+}
+
+/* Stile per i paragrafi */
+.bounty-program p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #000000;
+}
+
+/* Stile per il pulsante CTA */
+.cta-button {
+    background-color: #004d40; /* Colore pulsante */
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambio colore al passaggio del mouse */
+.cta-button:hover {
+    background-color: #00332e;
+}
+
+/* Adattamento per mobile */
+@media only screen and (max-width: 768px) {
+    .bounty-program h2 {
+        font-size: 2em;
+    }
+    
+    .bounty-program p {
+        font-size: 1em;
+    }
+    
+    .cta-button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+}
+   .bounty-program, .bounty-form {
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
           
     </style>
 </head>
@@ -584,6 +649,7 @@ footer p {
         <a href="#home" id="nav-home">Home</a>
         <a href="#tokenomics" id="nav-tokenomics">Tokenomics</a>
         <a href="#roadmap" id="nav-roadmap">Roadmap</a>
+        <a href="#bounty-program" id="nav-bounty-program">Bounty Program</a>
         <a href="#airdrop" id="nav-airdrop">Airdrop</a>
         <a href="#updates-news" id="nav-updates-news">Updates and News</a>
         <a href="#about" id="nav-about">About Us</a>
@@ -772,6 +838,93 @@ footer p {
         </div>
     </div>
 </section>
+
+<!-- Sezione Bounty Program -->
+<section id="bounty-program" class="bounty-program">
+    <div class="container-bounty">
+        <h2>Bounty Program</h2>
+        <p>We are excited to announce the TennisCoin Bounty Program! This program rewards individuals who help spread the word about TennisCoin and contribute to its growth. Whether you're a developer, marketer, content creator, or crypto enthusiast, you can earn TennisCoin by participating in various activities.</p>
+        
+        <h3>How to Participate</h3>
+        <p>To participate in the Bounty Program, complete the tasks listed below and submit proof of your contributions. You will be rewarded based on your level of involvement and the impact of your actions.</p>
+
+        <h4>Bounty Categories</h4>
+        <ul>
+            <li><strong>Content Creation:</strong> Write articles, blog posts, or create videos about TennisCoin and share them on social media platforms.</li>
+            <li><strong>Social Media Promotion:</strong> Promote TennisCoin on Twitter, Instagram, Telegram, and other platforms. Use the hashtag <code>#TennisCoinBounty</code> for visibility.</li>
+            <li><strong>Development and Community Support:</strong> Contribute to development, report bugs, or assist community members with troubleshooting.</li>
+        </ul>
+
+        <h4>Rewards</h4>
+        <p>Participants will be rewarded based on their contributions with TennisCoin (TENCO) tokens. Rewards are distributed weekly and based on quality, engagement, and reach of the contributions.</p>
+        
+        <!-- CTA Button -->
+        <a href="bounty_program.pdf" target="_blank" class="cta-button" aria-label="Join the TennisCoin Bounty Program and download the details in PDF format">More Info</a>
+    </div>
+</section>
+
+<!-- Bounty Program Signup Form -->
+<section id="bounty-form" class="bounty-form">
+    <div class="container">
+        <h2>Join the TennisCoin Bounty Program</h2>
+        <p>Complete the form below to register for the TennisCoin Bounty Program and submit your proof of work for tasks completed.</p>
+
+        <form action="your_submission_handler.php" method="post" enctype="multipart/form-data">
+            <!-- Participant's Name -->
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Social Media Handle -->
+            <div class="form-group">
+                <label for="social-handle">Social Media Handle:</label>
+                <input type="text" id="social-handle" name="social_handle" required placeholder="@yourhandle">
+            </div>
+
+            <!-- Bounty Category -->
+            <div class="form-group">
+                <label for="bounty-category">Bounty Category:</label>
+                <select id="bounty-category" name="bounty_category" required>
+                    <option value="social-media">Social Media Promotion</option>
+                    <option value="content-creation">Content Creation (Articles & Videos)</option>
+                    <option value="bug-reporting">Bug Reporting</option>
+                    <option value="referral">Referral Program</option>
+                </select>
+            </div>
+
+            <!-- Proof of Work URL (for articles, social media posts, etc.) -->
+            <div class="form-group">
+                <label for="proof-url">Proof of Work (URL):</label>
+                <input type="url" id="proof-url" name="proof_url" placeholder="Link to your post, article, or video">
+            </div>
+
+            <!-- Proof of Work File Upload (for images, documents, etc.) -->
+            <div class="form-group">
+                <label for="proof-file">Upload Proof of Work (if applicable):</label>
+                <input type="file" id="proof-file" name="proof_file" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+            </div>
+
+            <!-- Referral Code (if applicable) -->
+            <div class="form-group">
+                <label for="referral-code">Referral Code (if any):</label>
+                <input type="text" id="referral-code" name="referral_code" placeholder="Your referral code">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="cta-button">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>
+
 
 
    <!-- Sezione Airdrop -->
