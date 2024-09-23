@@ -472,7 +472,7 @@ footer p {
         }
 
         .images-right {
-                 right: 0; /* Posiziona a destra */
+                 transform: translateX(-20px); /* Posiziona a destra */
         }
 
         /* Stile per le immagini */
@@ -533,7 +533,9 @@ footer p {
     top: -20px; /* Sposta l'immagine sopra il contenitore */
     right: 0; /* Allinea l'immagine al bordo destro del contenitore */
 }
-
+.about-section .images-right {
+        transform: translateX(0px);
+}
 .image-left, .image-right {
     width: 150px; /* Dimensioni delle immagini */
     height: auto;
@@ -659,14 +661,14 @@ footer p {
         <a href="#updates-news" id="nav-updates-news">Updates and News</a>
         <a href="#about" id="nav-about">About Us</a>
         <a href="#contact" id="nav-contact">Contact Us</a>
-        <a href="https://www.dextools.io/app/en/bnb/pair-explorer/0x53aaa1238e62f8008e105896682931e6502b5e25?t=1726259856987" id="buy-button" target="_blank" rel="noopener noreferrer">Buy TENCO</a>
+        <a href="https://www.dextools.io/app/en/bnb/pair-explorer/0x53aaa1238e62f8008e105896682931e6502b5e25?t=1727076413851" id="buy-button" target="_blank" rel="noopener noreferrer">Buy TENCO</a>
     </nav>
     <main>
 
  <!-- Sezione Home -->
 <section id="home" class="home-section">
     <!-- Contenuto principale -->
-    <div class="content-container">
+    <div class="container">
         <h1 id="welcome-text">Welcome to TennisCoin (TENCO)</h1>
         
         <!-- Contenitore per l'immagine principale -->
@@ -1050,23 +1052,31 @@ We’re proud to be a diverse and dynamic team, dedicated to pushing the boundar
  <main>
 
    <!-- Footer -->
-   <footer>
-        <div class="footer-left">
-            <p class="copyright">© 2024 TennisCoin (TENCO). All rights reserved.</p>
-        </div>
-        <div class="footer-center privacy-links">
-            <a href="privacy_policy_en.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-            <a href="terms_conditions_en.pdf" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
-            <a href="whitepaper_en.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a>
-        </div>
-        <div class="footer-right">
+<footer>
+    <div class="footer-left">
+        <p class="copyright">© 2024 TennisCoin (TENCO). All rights reserved.</p>
+        <!-- GeckoTerminal icon aligned far right -->
+        <a href="https://www.geckoterminal.com/it/bsc/pools/0x53aaa1238e62f8008e105896682931e6502b5e25" class="social-icons" target="_blank" rel="noopener noreferrer" style="position: absolute; right: 0;">
+            <img src="geckoterminal.png" alt="GeckoTerminal" style="width: 40px; height: 40px;">
+        </a>
+    </div>
+    <div class="footer-center privacy-links">
+        <a href="privacy_policy_en.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a href="terms_conditions_en.pdf" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+        <a href="whitepaper_en.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a>
+    </div>
+    <div class="footer-right" style="display: flex; justify-content: center; align-items: center; position: relative;">
+        <!-- Centered social icons -->
+        <div class="social-icons-wrapper" style="display: flex; gap: 10px;">
             <a href="https://x.com/tenniscoin2025" class="social-icons" target="_blank" rel="noopener noreferrer"><i class="fab fa-x"></i></a>
             <a href="https://instagram.com/tenniscoin" class="social-icons" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
             <a href="https://t.me/tenniscoin" class="social-icons" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
             <a href="https://discord.gg/tenniscoin" class="social-icons" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
-           
         </div>
-    </footer>
+        
+    </div>
+</footer>
+
 
     <script>
         // Funzione per aggiornare il contatore
