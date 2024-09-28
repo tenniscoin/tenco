@@ -7,6 +7,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
 
+.crypto-banner {
+  width: 100%;
+  background-color: #f8f9fa;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 50px; /* Regola l'altezza in base alla navbar */
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  z-index: 100; /* Aumenta il valore se necessario */
+}
+
+.crypto-banner-content {
+  display: flex;
+  justify-content: center;
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 50s linear infinite; /* Velocità regolata a 20s */
+  align-items: center;
+}
+
+.crypto-item {
+  display: inline-block;
+  padding: 0 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%); /* Inizia fuori dallo schermo a destra */
+  }
+  100% {
+    transform: translateX(-100%); /* Scorri fino a scomparire a sinistra */
+  }
+}
+/* Media Query per Dispositivi Mobili */
+@media (max-width: 768px) { /* Cambia la larghezza in base alle tue esigenze */
+  .crypto-banner {
+    height: 50px; /* Modifica l'altezza per dispositivi mobili se necessario */
+    font-size: 14px; /* Riduci la dimensione del testo per adattarsi meglio */
+    top: 80px; /* Regola l'altezza in base alla navbar */
+}
+  
+  .crypto-item {
+    padding: 0 20px; /* Riduci il padding per adattarsi meglio */
+  }
+}
+
+
         h1, h2, h3 {
             scroll-margin-top: 80px; /* Modifica in base all'altezza effettiva della tua barra di navigazione */
         }
@@ -663,7 +717,25 @@ footer p {
         <a href="#contact" id="nav-contact">Contact Us</a>
         <a href="https://www.dextools.io/app/en/bnb/pair-explorer/0x53aaa1238e62f8008e105896682931e6502b5e25?t=1727076413851" id="buy-button" target="_blank" rel="noopener noreferrer">Buy TENCO</a>
     </nav>
-    <main>
+
+<div class="crypto-banner">
+  <div class="crypto-banner-content">
+    <span class="crypto-item">Bitcoin (BTC): $27,000</span>
+    <span class="crypto-item">Ethereum (ETH): $1,600</span>
+    <span class="crypto-item">Tether (USDT): $1.00</span>
+    <span class="crypto-item">Binance Coin (BNB): $300.00</span>
+    <span class="crypto-item">XRP (XRP): $0.50</span>
+    <span class="crypto-item">Cardano (ADA): $0.30</span>
+    <span class="crypto-item">Solana (SOL): $20.00</span>
+    <span class="crypto-item">Polkadot (DOT): $5.00</span>
+    <span class="crypto-item">Dogecoin (DOGE): $0.06</span>
+    <span class="crypto-item">Litecoin (LTC): $70.00</span>
+  </div>
+</div>
+
+    
+
+<main>
 
  <!-- Sezione Home -->
 <section id="home" class="home-section">
@@ -1127,5 +1199,26 @@ We’re proud to be a diverse and dynamic team, dedicated to pushing the boundar
     <a href="#" class="back-to-top" id="back-to-top">
     ↑ 
     </a>
+ <script>
+    // Esempio di chiamata API per ottenere i prezzi delle criptovalute
+fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1')
+  .then(response => response.json())
+  .then(data => {
+    if (Array.isArray(data)) {  // Verifica che la risposta sia un array
+      const bannerContent = document.querySelector('.crypto-banner-content');
+      bannerContent.innerHTML = ''; // Pulisci il contenuto precedente
+      data.forEach(crypto => {
+        const cryptoItem = document.createElement('span');
+        cryptoItem.className = 'crypto-item';
+        cryptoItem.innerText = `${crypto.name} (${crypto.symbol.toUpperCase()}): $${crypto.current_price}`;
+        bannerContent.appendChild(cryptoItem);
+      });
+    } else {
+      console.error('La risposta non è valida:', data);
+    }
+  })
+  .catch(error => console.error('Errore nel recuperare i dati delle criptovalute:', error));
+  </script>
+
 </body>
 </html>
