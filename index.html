@@ -13,6 +13,7 @@
   overflow: hidden;
   white-space: nowrap;
   padding: 10px 0;
+  margin: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   top: 50px; /* Regola l'altezza in base alla navbar */
@@ -20,6 +21,7 @@
   justify-content: center; /* Centra orizzontalmente */
   align-items: center; /* Centra verticalmente */
   z-index: 100; /* Aumenta il valore se necessario */
+  box-sizing: border-box; /* Aggiungi questa regola */
 }
 
 .crypto-banner-content {
@@ -52,14 +54,13 @@
   .crypto-banner {
     height: 50px; /* Modifica l'altezza per dispositivi mobili se necessario */
     font-size: 14px; /* Riduci la dimensione del testo per adattarsi meglio */
-    top: 100px; /* Regola l'altezza in base alla navbar */
+    top: 20px; /* Regola l'altezza in base alla navbar */
 }
   
   .crypto-item {
     padding: 0 20px; /* Riduci il padding per adattarsi meglio */
   }
 }
-
 
         h1, h2, h3 {
             scroll-margin-top: 80px; /* Modifica in base all'altezza effettiva della tua barra di navigazione */
@@ -120,14 +121,15 @@ main {
             color: white;
             padding: 10px;
             text-align: center;
-            width: 98.554%;
-            position: absolute;
+            width: 100%;
+            position: relative;
             top: 0;
             left: 0;
             z-index: 1000;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            box-sizing: border-box; /* Aggiungi questa regola */
         }
 
         nav a {
@@ -731,9 +733,7 @@ footer p {
     <span class="crypto-item">Dogecoin (DOGE): $0.06</span>
     <span class="crypto-item">Litecoin (LTC): $70.00</span>
   </div>
-</div>
-
-    
+</div>    
 
 <main>
 
