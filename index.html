@@ -638,18 +638,22 @@ footer p {
     }
 }
     
-   /* Stile per la sezione del bounty program */
-    .bounty-program {
+  /* Stile per la sezione del bounty program */
+.bounty-program {
     background-color: #f9f9f9; /* Colore di sfondo coerente con il resto del sito */
     padding: 50px 0;
     text-align: center;
+    border-radius: 8px; /* Angoli arrotondati */
 }
 
 /* Stile per il contenitore */
-.container-bounty {
+.container-bounty, .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Angoli arrotondati */
 }
 
 /* Stile per i titoli */
@@ -673,7 +677,7 @@ footer p {
     padding: 15px 30px;
     font-size: 1.1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px; /* Angoli arrotondati per il pulsante */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -698,19 +702,15 @@ footer p {
         padding: 12px 25px;
     }
 }
-   .bounty-program, .bounty-form {
-        padding: 20px;
-        background-color: #f9f9f9;
-    }
-   
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+
+/* Stile per il form del bounty program */
+.bounty-form {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px; /* Angoli arrotondati */
 }
+
+
 
             
     </style>
@@ -802,7 +802,7 @@ footer p {
 </section>
 
     
- <!-- Sezione Tokenomics -->
+<!-- Sezione Tokenomics -->
 <section id="tokenomics" class="tokenomics">
     <!-- Container per la sezione Tokenomics -->
     <div class="container">
@@ -816,7 +816,9 @@ footer p {
                 <img src="us_open.jpeg" alt="Tokenomics Right Image">
             </div>
         </div>
+
         <h2>TennisCoin Tokenomics</h2>
+
         <h3>1. Token Distribution</h3>
         <p>The distribution of TennisCoin is designed to ensure balanced and sustainable growth for the project. Tokens will be distributed as follows:</p>
         <ul>
@@ -825,6 +827,11 @@ footer p {
             <li><strong>10% - Reserved for the Team:</strong> 10% of the tokens will be reserved for team members as an incentive for their commitment and dedication to the project's development. These tokens will be subject to a vesting period to ensure project stability.</li>
             <li><strong>30% - Future Development:</strong> 30% of the tokens will be allocated for the future development of the project, including platform enhancements, service expansion, and exploring new opportunities. This fund will ensure continuous growth and innovation for TennisCoin.</li>
         </ul>
+
+        <!-- Aggiungi il grafico a torta qui con dimensioni ridotte e centrato -->
+        <div class="token-distribution-chart">
+            <img src="token_distribution_tenniscoin.png" alt="TennisCoin Token Distribution" width="400" height="400" style="display: block; margin-left: auto; margin-right: auto;">
+        </div>
 
         <h3>2. Token Utilization</h3>
         <p>TennisCoin can be used in various ways within our ecosystem, with the goal of supporting and promoting youth tennis. Here are some of the primary uses:</p>
@@ -845,6 +852,9 @@ footer p {
         <p>The TennisCoin Tokenomics is designed to create a sustainable and growth-oriented ecosystem, promoting inclusion and support for young tennis talent. We are committed to ensuring that every TennisCoin contributes to our goal of making tennis accessible to all and building a global community of enthusiasts and supporters.</p>
     </div> <!-- Chiusura del container -->
 </section>
+
+
+
 
 
 <!-- Sezione Fee Structure -->
