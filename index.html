@@ -732,6 +732,41 @@ footer p {
     overflow-wrap: break-word;
   }
 }
+
+/* Stile generale per il container */
+.tokenomics .container {
+    width: 100%;
+    max-width: 1200px; /* Imposta un limite massimo per il contenitore */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Stile per mobile */
+@media (max-width: 768px) {
+    .tokenomics .container {
+        padding: 10px; /* Riduci il padding per adattarsi a schermi piccoli */
+        max-width: 100%; /* Assicura che il container occupi il 100% della larghezza */
+    }
+
+    /* Assicurati che le immagini si adattino correttamente su mobile */
+    .tokenomics-images img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Correggi la dimensione del grafico a torta su mobile */
+    .pie-chart {
+        width: 100%; /* Imposta la larghezza al 100% del contenitore */
+        height: auto; /* Imposta l'altezza in modo proporzionale */
+        margin: 20px auto; /* Margine per centrare il grafico */
+    }
+
+    /* Assicurati che i testi non siano troppo grandi su schermi piccoli */
+    .tokenomics h2, .tokenomics h3, .tokenomics p {
+        font-size: 1.1em; /* Riduci leggermente la dimensione del testo su mobile */
+    }
+}
+
            
     </style>
 </head>
