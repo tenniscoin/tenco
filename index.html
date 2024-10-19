@@ -717,7 +717,9 @@ footer p {
   border-radius: 8px;
   margin: 20px 0;
   max-width: 1200px; /* Limit width on larger screens */
-  margin: 0 auto; /* Center on the page */
+  margin: 0 auto; /* Center the container */
+  word-wrap: break-word; /* Break long text like contract addresses */
+  overflow-wrap: break-word; /* Ensure no overflow */
 }
 
 /* For mobile screens */
@@ -726,11 +728,11 @@ footer p {
     padding: 10px; /* Reduce padding on mobile */
     font-size: 14px; /* Slightly reduce font size */
     max-width: 90%; /* Adjust the width to be smaller on mobile */
+    word-wrap: break-word; /* Break long text like contract addresses */
+    overflow-wrap: break-word;
   }
 }
-
-
-            
+           
     </style>
 </head>
 <body>
