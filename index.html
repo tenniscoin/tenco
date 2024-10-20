@@ -710,22 +710,19 @@ footer p {
     border-radius: 8px; /* Angoli arrotondati */
 }
 
-.disclaimer-container {
-  background-color: #000 !important; /* Black background */
-  color: #fff !important; /* White text */
-  padding: 20px;
-  border-radius: 8px;
-  margin: 20px 0;
-  max-width: 1200px; /* Limit width on larger screens */
-  margin: 0 auto; /* Center the container */
-  word-wrap: break-word; /* Break long text like contract addresses */
-  overflow-wrap: break-word; /* Ensure no overflow */
+#disclaimer .container {
+    max-width: 100%; /* Assicura che il container occupi l'intera larghezza disponibile */
+    margin: 0 auto; /* Centra il contenuto orizzontalmente */
+    padding: 20px;
 }
 
-@media (max-width: 768px) {
-    #disclaimer .container {
-        padding: 15px; /* Riduce il padding su dispositivi mobili */
-    }
+#disclaimer p {
+    word-wrap: break-word; /* Consente al testo lungo di andare a capo */
+    overflow-wrap: break-word; /* Permette la divisione delle parole lunghe per evitare che escano dal contenitore */
+}
+
+#disclaimer p strong {
+    font-weight: bold;
 }
 
 /* Stile generale per il container */
