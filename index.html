@@ -723,7 +723,14 @@ footer p {
   max-width: 800px; /* Limit width on larger screens */
   margin: 0 auto; /* Center on the page */
 }
+#disclaimer p {
+    word-wrap: break-word; /* Consente al testo lungo di andare a capo */
+    overflow-wrap: break-word; /* Permette la divisione delle parole lunghe per evitare che escano dal contenitore */
+}
 
+#disclaimer p strong {
+    font-weight: bold;
+}
 @media (max-width: 768px) {
     #disclaimer .container {
         padding: 15px; /* Riduce il padding su dispositivi mobili */
