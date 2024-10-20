@@ -387,6 +387,7 @@ footer p {
                             display: grid;
                             grid-template-columns: repeat(5, 1fr); /* 5 colonne di dimensioni uguali */
                             gap: 20px; /* Spazio tra le colonne */
+                            max-width: 800px;
         }
 
         .roadmap-item {
@@ -425,6 +426,7 @@ footer p {
                        grid-template-columns: repeat(5, 1fr); /* 5 colonne di dimensioni uguali */
                        gap: 20px; /* Spazio tra le colonne */
                        border-radius: 8px
+                       max-width: 800px;
         }
 
        .fee-item {
@@ -451,7 +453,7 @@ footer p {
         }
      }
         .container {
-                    max-width: 1200px;
+                    max-width: 800px;
                     margin: 0 auto;
                     padding: 20px;
                     background-color: #f9f9f9; /* Nuovo colore di background */
@@ -468,7 +470,7 @@ footer p {
         }
         /* Stile per il container specifico della sezione Updates and News */
         .container-updates {
-                        max-width: 1200px;
+                        max-width: 800px;
                         margin: 0 auto;
                         padding: 20px;
                         background-color: #f9f9f9; /* Colore di sfondo */
@@ -478,7 +480,7 @@ footer p {
 
         /* Stile per il container specifico della sezione About Us */
         .container-about {
-                          max-width: 1200px;
+                          max-width: 800px;
                           margin: 0 auto;
                           padding: 20px;
                           background-color: #f9f9f9; /* Colore di sfondo */
@@ -489,7 +491,7 @@ footer p {
  }
         /* Stile per il container della sezione Contact Us */
         .container-contact {
-                         max-width: 1200px;
+                         max-width: 800px;
                          margin: 0 auto;
                          padding: 20px;
                          background-color: #f9f9f9; /* Colore di sfondo */
@@ -504,6 +506,7 @@ footer p {
         padding: 20px;
         background-color: #ffffff;
         border-radius: 8px
+        margin-top: 100px;
         }
 
         /* Stile per il contenitore del contenuto */
@@ -521,6 +524,7 @@ footer p {
                  display: flex;
                  flex-direction: column;
                  gap: 90px; /* Spazio tra le immagini */
+                 margin-top: 40px;
         }
 
         .images-left {
@@ -533,7 +537,7 @@ footer p {
 
         /* Stile per le immagini */
         .image img {
-                  width: 100%;
+                  width: 90%;
                   height: auto;
                   border-radius: 8px;
         }
@@ -598,7 +602,7 @@ footer p {
 }
 
 .image-left img, .image-right img {
-    width: 100%;
+    width: 80%;
     height: auto;
     border-radius: 10px; /* Angoli arrotondati */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
@@ -606,7 +610,7 @@ footer p {
 
 .image-info {
     text-align: center;
-    margin-top: 10px; /* Spazio sopra il testo */
+    margin-top: 8px; /* Spazio sopra il testo */
 }
 
 .name {
@@ -625,7 +629,7 @@ footer p {
     }
     .about-section .images-right {
         transform: translateX(-40px); /* Sposta l'immagine a destra di 20px */
-        top: -70px;
+        top: -60px;
     }
     .images-right {
         transform: translateX(-30px); /* Sposta l'immagine a destra di 20px */
@@ -634,7 +638,7 @@ footer p {
     transform: translateX(10px);
     }
     .about-section .images-left {
-         top: -70px;
+         top: -60px;
     }
 }
     
@@ -648,19 +652,14 @@ footer p {
 
 /* Stile per il contenitore */
 .container-bounty, .container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px; /* Angoli arrotondati */
 }
-@media (max-width: 768px) {
-    .container-bounty, .container {
-        padding: 15px; /* Riduce il padding su dispositivi mobili */
-        max-width: 90%;
-    }
-}
+
 /* Stile per i titoli */
 .bounty-program h2 {
     font-size: 2.5em;
@@ -715,67 +714,50 @@ footer p {
     border-radius: 8px; /* Angoli arrotondati */
 }
 
-#disclaimer .container {
-    max-width: 100%; /* Assicura che il container occupi l'intera larghezza disponibile */
-    margin: 0 auto; /* Centra il contenuto orizzontalmente */
-    padding: 20px;
+.disclaimer-container {
+  background-color: #000 !important; /* Black background */
+  color: #fff !important; /* White text */
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  max-width: 800px; /* Limit width on larger screens */
+  margin: 0 auto; /* Center on the page */
 }
 
-#disclaimer p {
-    word-wrap: break-word; /* Consente al testo lungo di andare a capo */
-    overflow-wrap: break-word; /* Permette la divisione delle parole lunghe per evitare che escano dal contenitore */
-}
-
-#disclaimer p strong {
-    font-weight: bold;
-}
 @media (max-width: 768px) {
     #disclaimer .container {
         padding: 15px; /* Riduce il padding su dispositivi mobili */
-        max-width: 90%;
     }
 }
 
-/* Stile generale per il container */
-.tokenomics .container {
-    width: 100%;
-    max-width: 1200px; /* Imposta un limite massimo per il contenitore */
-    margin: 0 auto;
-    padding: 20px;
+.container, .container-updates, .container-about, .fee-container, .roadmap-container, section {
+    max-width: 800px; /* Imposta una larghezza massima per tutti i container */
+    margin: 0 auto; /* Centra i container orizzontalmente */
+    padding: 20px; /* Spaziatura interna */
+    background-color: #f9f9f9; /* Colore di sfondo uniforme */
+    border-radius: 8px; /* Angoli arrotondati per un look più omogeneo */
+    box-sizing: border-box; /* Assicura che padding e bordi non influiscano sulla larghezza */
 }
 
-/* Stile per mobile */
-@media (max-width: 768px) {
-    .tokenomics .container {
-        padding: 10px; /* Riduci il padding per adattarsi a schermi piccoli */
-        max-width: 90%; /* Assicura che il container occupi il 100% della larghezza */
-    }
-
-    /* Assicurati che le immagini si adattino correttamente su mobile */
-    .tokenomics-images img {
-        width: 100%;
-        height: auto;
-    }
-
-    /* Correggi la dimensione del grafico a torta su mobile */
-    .pie-chart {
-        width: 100%; /* Imposta la larghezza al 100% del contenitore */
-        height: auto; /* Imposta l'altezza in modo proporzionale */
-        margin: 20px auto; /* Margine per centrare il grafico */
-    }
-
-    /* Assicurati che i testi non siano troppo grandi su schermi piccoli */
-    .tokenomics h2, .tokenomics h3, .tokenomics p {
-        font-size: 1.1em; /* Riduci leggermente la dimensione del testo su mobile */
-    }
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centra il contenuto all'interno del container */
+    min-height: 80vh;
 }
+
+
+
+/* Mobile Styles */
 @media (max-width: 768px) {
     .container, .container-updates, .container-about, .fee-container, .roadmap-container, section {
         max-width: 90%; /* Permetti ai container di occupare tutta la larghezza su dispositivi mobili */
         padding: 10px; /* Riduci il padding su schermi più piccoli */
     }
 }
-           
+
+            
     </style>
 </head>
 <body>
@@ -863,6 +845,7 @@ footer p {
         </div>
     </div>
 </section>
+
     
 <!-- Sezione Tokenomics -->
 <section id="tokenomics" class="tokenomics">
@@ -1004,6 +987,7 @@ footer p {
     </div>
 </section>
 
+
     <!-- Sezione Roadmap -->
 <section id="roadmap">
     <h2>Roadmap</h2>
@@ -1118,6 +1102,8 @@ footer p {
     </div>
 </section>
 
+
+
    <!-- Sezione Airdrop -->
 <section id="airdrop" class="airdrop">
     <!-- Container per la sezione Airdrop -->
@@ -1147,7 +1133,7 @@ footer p {
 
         <!-- Q4 2024 - Token Burn Mechanism -->
         <h3>Q4 2024 - Token Burn Mechanism Update</h3>
-        <p>As part of our commitment to maintaining a sustainable and deflationary ecosystem, we have burned a total of 7.59999999999999999 × 10²⁹ TENCO to reduce the total supply and increase the token's scarcity. Following this major burn event, less than 1,000,000,000,000 TENCO now remain in circulation. Additionally, almost 50% of the remaining TENCO supply, precisely 496,521,789,653 tokens, have been locked until October 31, 2025. Going forward, 1% of every transaction will also be burned to continue supporting this deflationary strategy. This mechanism will help create long-term value for our holders by limiting the circulating supply and promoting a healthier market environment for TennisCoin.</p>
+        <p>As part of our commitment to maintaining a sustainable and deflationary ecosystem, we have burned a total of 759,999,999,999,999,999,000,000,088,585.055565400214609604 TENCO to reduce the total supply and increase the token's scarcity. Following this major burn event, less than 1,000,000,000,000 TENCO now remain in circulation. Additionally, almost 50% of the remaining TENCO supply, precisely 496,521,789,653.339941468028723528 tokens, have been locked until October 31, 2025. Going forward, 1% of every transaction will also be burned to continue supporting this deflationary strategy. This mechanism will help create long-term value for our holders by limiting the circulating supply and promoting a healthier market environment for TennisCoin.</p>
 
         <!-- Q4 2024 - Staking Program Release -->
         <h3>Q4 2024 - Staking Program Release</h3>
