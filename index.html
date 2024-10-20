@@ -769,7 +769,12 @@ footer p {
         font-size: 1.1em; /* Riduci leggermente la dimensione del testo su mobile */
     }
 }
-
+@media (max-width: 768px) {
+    .container, .container-updates, .container-about, .fee-container, .roadmap-container, section {
+        max-width: 90%; /* Permetti ai container di occupare tutta la larghezza su dispositivi mobili */
+        padding: 10px; /* Riduci il padding su schermi più piccoli */
+    }
+}
            
     </style>
 </head>
