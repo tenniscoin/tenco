@@ -125,10 +125,9 @@
                 try {
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                     currentAccount = accounts[0]; // Save the connected account
-                    document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
+                    updateUIOnConnect(); // Update UI after connecting
                     initContract();
-                    document.getElementById('connect-button').innerText = "Disconnect Wallet"; // Change button text
-
+                    
                     // Handle account changes
                     window.ethereum.on('accountsChanged', function (accounts) {
                         if (accounts.length > 0) {
@@ -152,6 +151,13 @@
             }
         }
 
+        // Update UI after connecting
+        function updateUIOnConnect() {
+            document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
+            document.getElementById('connect-button').innerText = "Disconnect Wallet"; // Change button text
+            console.log("Connected:", currentAccount); // Log connected account
+        }
+
         // Initialize the smart contract
         function initContract() {
             console.log("Initializing contract at address:", contractAddress); // Debugging log
@@ -165,6 +171,7 @@
             document.getElementById('wallet-address').innerText = ""; // Clear wallet address
             document.getElementById('connect-button').innerText = "Connect Wallet"; // Reset button text
             alert("Disconnected from wallet."); // Notify user
+            console.log("Disconnected"); // Log disconnection
         }
 
         // Stake Tokens
