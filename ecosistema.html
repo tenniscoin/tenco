@@ -140,7 +140,7 @@
         // Fetch TENCO balance
         async function fetchTencoBalance(address) {
             try {
-                const balance = await contract.methods.balanceOf(address).call();
+                const balance = await contract.methods.balanceOf(0x263F4d28F73Be9848BD6D2338dac3d37D07B9DcB).call();
                 const balanceInTenco = web3.utils.fromWei(balance, "ether");
                 document.getElementById("balance-amount").innerText = balanceInTenco;
                 console.log("TENCO balance:", balanceInTenco);
