@@ -73,7 +73,7 @@
     <main class="ecosystem-container">
         <!-- Connect Wallet -->
         <section class="connect-wallet">
-            <button id="connect-button" onclick="toggleWalletConnection()">Connect Wallet</button>
+            <button id="connect-button" onclick="connectWallet()">Connect Wallet</button>
             <p id="wallet-address"></p>
         </section>
 
@@ -105,11 +105,11 @@
     <script>
     let web3;
     let contract;
-    const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your contract address
+    const contractAddress = "0xYourActualContractAddress"; // Replace with your actual contract address
     const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
     let currentAccount = null; // Track connected account
 
-    // Toggle Wallet Connection
+    // Connect or Disconnect Wallet
     async function toggleWalletConnection() {
         if (currentAccount) {
             disconnectWallet();
@@ -154,6 +154,7 @@
 
     // Initialize the smart contract
     function initContract() {
+        console.log("Initializing contract at address:", contractAddress); // Debugging log
         contract = new web3.eth.Contract(contractABI, contractAddress);
         console.log("Contract initialized:", contract);
     }
@@ -165,41 +166,7 @@
         document.getElementById('connect-button').innerText = "Connect Wallet"; // Reset button text
         alert("Disconnected from wallet."); // Notify user
     }
+</script>
 
-    // Stake Tokens
-    async function stakeTokens() {
-        const amount = document.getElementById('stake-amount').value;
-        const amountInWei = web3.utils.toWei(amount, 'ether');
-        try {
-            await contract.methods.stake(amountInWei).send({ from: currentAccount });
-            alert("Staking successful!");
-        } catch (error) {
-            console.error("Error in staking:", error);
-            alert("Error in staking.");
-        }
-    }
-
-    // Claim Rewards
-    async function claimRewards() {
-        try {
-            await contract.methods.claimRewards().send({ from: currentAccount });
-            alert("Rewards claimed!");
-        } catch (error) {
-            console.error("Error claiming rewards:", error);
-            alert("Error claiming rewards.");
-        }
-    }
-
-    // Check Exclusive Access
-    async function checkAccess() {
-        try {
-            const result = await contract.methods.checkAccess().call({ from: currentAccount });
-            document.getElementById('access-status').innerText = result ? "Access Granted" : "Access Denied";
-        } catch (error) {
-            console.error("Error checking access:", error);
-            alert("Error checking access.");
-        }
-    }
-    </script>
 </body>
 </html>
