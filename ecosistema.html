@@ -73,7 +73,7 @@
     <main class="ecosystem-container">
         <!-- Connect Wallet -->
         <section class="connect-wallet">
-            <button id="connect-button" onclick="connectWallet()">Connect Wallet</button>
+            <button id="connect-button" onclick="toggleWalletConnection()">Connect Wallet</button>
             <p id="wallet-address"></p>
         </section>
 
@@ -107,26 +107,33 @@
     let contract;
     const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your contract address
     const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
-    let isConnected = false; // Track connection status
+    let currentAccount = null; // Track connected account
+
+    // Toggle Wallet Connection
+    async function toggleWalletConnection() {
+        if (currentAccount) {
+            disconnectWallet();
+        } else {
+            await connectWallet();
+        }
+    }
 
     // Connect to MetaMask
     async function connectWallet() {
-        // Check if MetaMask is installed
         if (window.ethereum) {
-            // Create a Web3 instance
             web3 = new Web3(window.ethereum);
             try {
-                // Request account access
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
+                currentAccount = accounts[0];
+                document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
                 initContract();
-                isConnected = true; // Set the connection status to true
-                document.getElementById('connect-button').innerText = "Disconnect Wallet"; // Change button text
+                document.getElementById('connect-button').innerText = "Disconnect Wallet";
 
-                // Event listeners for account and network changes
+                // Event listeners for account changes
                 window.ethereum.on('accountsChanged', function (accounts) {
                     if (accounts.length > 0) {
-                        document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
+                        currentAccount = accounts[0];
+                        document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
                     } else {
                         disconnectWallet();
                     }
@@ -153,7 +160,7 @@
 
     // Disconnect Wallet
     function disconnectWallet() {
-        isConnected = false; // Set connection status to false
+        currentAccount = null; // Clear the current account
         document.getElementById('wallet-address').innerText = ""; // Clear wallet address
         document.getElementById('connect-button').innerText = "Connect Wallet"; // Reset button text
         alert("Disconnected from wallet."); // Notify user
@@ -163,10 +170,8 @@
     async function stakeTokens() {
         const amount = document.getElementById('stake-amount').value;
         const amountInWei = web3.utils.toWei(amount, 'ether');
-        const accounts = await web3.eth.getAccounts();
-
         try {
-            await contract.methods.stake(amountInWei).send({ from: accounts[0] });
+            await contract.methods.stake(amountInWei).send({ from: currentAccount });
             alert("Staking successful!");
         } catch (error) {
             console.error("Error in staking:", error);
@@ -176,10 +181,8 @@
 
     // Claim Rewards
     async function claimRewards() {
-        const accounts = await web3.eth.getAccounts();
-
         try {
-            await contract.methods.claimRewards().send({ from: accounts[0] });
+            await contract.methods.claimRewards().send({ from: currentAccount });
             alert("Rewards claimed!");
         } catch (error) {
             console.error("Error claiming rewards:", error);
@@ -189,10 +192,8 @@
 
     // Check Exclusive Access
     async function checkAccess() {
-        const accounts = await web3.eth.getAccounts();
-
         try {
-            const result = await contract.methods.checkAccess().call({ from: accounts[0] });
+            const result = await contract.methods.checkAccess().call({ from: currentAccount });
             document.getElementById('access-status').innerText = result ? "Access Granted" : "Access Denied";
         } catch (error) {
             console.error("Error checking access:", error);
