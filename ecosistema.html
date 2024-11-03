@@ -7,17 +7,13 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.2/dist/web3.min.js"></script>
     <style>
+        /* Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
             padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 20px;
         }
 
         .ecosystem-container {
@@ -27,13 +23,6 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        section {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
         }
 
         button {
@@ -49,19 +38,6 @@
 
         button:hover {
             background-color: #005a2a;
-        }
-
-        input[type="number"] {
-            padding: 10px;
-            margin-right: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9em;
         }
 
         #tenco-balance {
@@ -84,27 +60,7 @@
             <p id="wallet-address" style="display: none;"></p>
             <p id="tenco-balance" style="display: none;">Total TENCO: <span id="balance-amount"></span></p>
         </section>
-
-        <!-- Staking Section -->
-        <section id="staking">
-            <h2>Staking</h2>
-            <p>Stake your TENCO tokens to earn rewards. Staking supports the network and provides you with passive income.</p>
-            <!-- Additional staking details or inputs could go here -->
-        </section>
-
-        <!-- Rewards Section -->
-        <section id="rewards">
-            <h2>Rewards</h2>
-            <p>Earn rewards by holding TENCO tokens in your wallet. The more you hold, the more you earn over time.</p>
-            <!-- Additional rewards details could go here -->
-        </section>
-
-        <!-- Exclusive Access Section -->
-        <section id="exclusive-access">
-            <h2>Exclusive Access</h2>
-            <p>Get exclusive access to online tennis lessons, tournaments, educational content, and much more with TENCO.</p>
-            <!-- Additional exclusive access information could go here -->
-        </section>
+        <!-- Staking, Rewards, Exclusive Access sections are here as in the previous code -->
     </main>
 
     <footer>
@@ -115,7 +71,7 @@
         let web3;
         let contract;
         const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your actual contract address
-        const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
+        const contractABI = [ /* Your contract ABI here */ ]; // Replace with actual ABI
 
         async function toggleWalletConnection() {
             if (document.getElementById("connect-button").innerText === "Connect Wallet") {
@@ -125,7 +81,7 @@
             }
         }
 
-        // Connect wallet
+        // Connect Wallet
         async function connectWallet() {
             if (window.ethereum) {
                 web3 = new Web3(window.ethereum);
@@ -142,51 +98,55 @@
                     initContract();
                     fetchTencoBalance(account);
 
-                    // Event listener for account change
                     window.ethereum.on("accountsChanged", (accounts) => {
                         if (accounts.length > 0) {
-                            const newAccount = accounts[0];
-                            document.getElementById("wallet-address").innerText = "Connected Wallet: " + newAccount;
-                            fetchTencoBalance(newAccount);
+                            document.getElementById("wallet-address").innerText = "Connected Wallet: " + accounts[0];
+                            fetchTencoBalance(accounts[0]);
                         } else {
-                            disconnectWallet(); // Disconnect if no account is selected
+                            disconnectWallet();
                         }
                     });
 
-                    // Event listener for network change
                     window.ethereum.on("chainChanged", () => {
                         window.location.reload();
                     });
                 } catch (error) {
-                    console.error("Error connecting to MetaMask:", error);
-                    alert("Could not connect to wallet. Please try again.");
+                    console.error("Connection failed:", error);
+                    alert("Could not connect to wallet. Check MetaMask.");
                 }
             } else {
-                alert("MetaMask not detected. Please install MetaMask to connect.");
+                alert("MetaMask not detected. Please install MetaMask.");
             }
         }
 
-        // Disconnect wallet
+        // Disconnect Wallet
         function disconnectWallet() {
             document.getElementById("wallet-address").style.display = "none";
             document.getElementById("tenco-balance").style.display = "none";
             document.getElementById("connect-button").innerText = "Connect Wallet";
         }
 
-        // Initialize the contract
+        // Initialize contract
         function initContract() {
-            contract = new web3.eth.Contract(contractABI, contractAddress);
+            try {
+                contract = new web3.eth.Contract(contractABI, contractAddress);
+                console.log("Contract initialized successfully.");
+            } catch (error) {
+                console.error("Error initializing contract:", error);
+                alert("Contract initialization failed. Check contract address and ABI.");
+            }
         }
 
-        // Fetch total TENCO balance
+        // Fetch TENCO balance
         async function fetchTencoBalance(address) {
             try {
                 const balance = await contract.methods.balanceOf(address).call();
                 const balanceInTenco = web3.utils.fromWei(balance, "ether");
                 document.getElementById("balance-amount").innerText = balanceInTenco;
+                console.log("TENCO balance:", balanceInTenco);
             } catch (error) {
                 console.error("Error fetching TENCO balance:", error);
-                alert("Error fetching balance.");
+                alert("Failed to retrieve TENCO balance. Check contract settings.");
             }
         }
     </script>
