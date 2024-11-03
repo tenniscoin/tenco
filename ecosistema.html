@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TENCO Ecosystem</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.2/dist/web3.min.js"></script>
     <style>
         body {
@@ -37,24 +37,24 @@
         }
 
         button {
-            background-color: #007b33; /* Darker green button color */
+            background-color: #007b33;
             color: white;
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
-            display: block; /* Allows centering */
-            margin: 0 auto; /* Center the button */
+            display: block;
+            margin: 0 auto;
         }
 
         button:hover {
-            background-color: #005a2a; /* Darker hover color */
+            background-color: #005a2a;
         }
 
         input[type="number"] {
             padding: 10px;
             margin-right: 10px;
-            border: 1px solid #ddd; /* Input border */
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
 
@@ -71,26 +71,22 @@
     </header>
 
     <main class="ecosystem-container">
-        <!-- Connect Wallet -->
         <section class="connect-wallet">
             <button id="connect-button" onclick="toggleWalletConnection()">Connect Wallet</button>
             <p id="wallet-address"></p>
         </section>
 
-        <!-- Staking -->
         <section class="staking-section">
             <h2>Stake TENCO</h2>
             <input type="number" id="stake-amount" placeholder="Enter amount of TENCO">
             <button onclick="stakeTokens()">Stake</button>
         </section>
 
-        <!-- Rewards -->
         <section class="rewards-section">
             <h2>Claim Rewards</h2>
             <button onclick="claimRewards()">Claim Rewards</button>
         </section>
 
-        <!-- Exclusive Access -->
         <section class="access-section">
             <h2>Exclusive Access</h2>
             <button onclick="checkAccess()">Check Access</button>
@@ -107,9 +103,8 @@
         let contract;
         const contractAddress = "0xYourActualContractAddress"; // Replace with your actual contract address
         const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
-        let currentAccount = null; // Track connected account
+        let currentAccount = null;
 
-        // Toggle connection status
         async function toggleWalletConnection() {
             if (currentAccount) {
                 disconnectWallet();
@@ -118,30 +113,27 @@
             }
         }
 
-        // Connect to MetaMask
         async function connectWallet() {
             if (window.ethereum) {
                 web3 = new Web3(window.ethereum);
                 try {
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    currentAccount = accounts[0]; // Save the connected account
-                    updateUIOnConnect(); // Update UI after connecting
+                    currentAccount = accounts[0];
+                    updateUIOnConnect(); 
                     initContract();
-                    
-                    // Handle account changes
+
                     window.ethereum.on('accountsChanged', function (accounts) {
                         if (accounts.length > 0) {
-                            currentAccount = accounts[0]; // Update current account
+                            currentAccount = accounts[0];
                             document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
                         } else {
-                            disconnectWallet(); // No accounts available, disconnect
+                            disconnectWallet();
                         }
                     });
 
                     window.ethereum.on('chainChanged', function (chainId) {
-                        window.location.reload(); // Reload the page when the network changes
+                        window.location.reload();
                     });
-
                 } catch (error) {
                     console.error("Error connecting to MetaMask:", error);
                     alert("Please allow access to connect your wallet.");
@@ -151,30 +143,23 @@
             }
         }
 
-        // Update UI after connecting
         function updateUIOnConnect() {
             document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
-            document.getElementById('connect-button').innerText = "Disconnect Wallet"; // Change button text
-            console.log("Connected:", currentAccount); // Log connected account
+            document.getElementById('connect-button').innerText = "Disconnect Wallet";
         }
 
-        // Initialize the smart contract
+        function disconnectWallet() {
+            currentAccount = null;
+            document.getElementById('wallet-address').innerText = "";
+            document.getElementById('connect-button').innerText = "Connect Wallet";
+            alert("Disconnected from wallet.");
+        }
+
         function initContract() {
-            console.log("Initializing contract at address:", contractAddress); // Debugging log
             contract = new web3.eth.Contract(contractABI, contractAddress);
             console.log("Contract initialized:", contract);
         }
 
-        // Disconnect Wallet
-        function disconnectWallet() {
-            currentAccount = null; // Clear the current account
-            document.getElementById('wallet-address').innerText = ""; // Clear wallet address
-            document.getElementById('connect-button').innerText = "Connect Wallet"; // Reset button text
-            alert("Disconnected from wallet."); // Notify user
-            console.log("Disconnected"); // Log disconnection
-        }
-
-        // Stake Tokens
         async function stakeTokens() {
             const amount = document.getElementById('stake-amount').value;
             const amountInWei = web3.utils.toWei(amount, 'ether');
@@ -189,7 +174,6 @@
             }
         }
 
-        // Claim Rewards
         async function claimRewards() {
             const accounts = await web3.eth.getAccounts();
 
@@ -202,7 +186,6 @@
             }
         }
 
-        // Check Exclusive Access
         async function checkAccess() {
             const accounts = await web3.eth.getAccounts();
 
