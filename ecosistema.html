@@ -104,108 +104,113 @@
     </footer>
 
     <script>
-    let web3;
-    let contract;
-    const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your contract address
-    const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
+        let web3;
+        let contract;
+        const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your contract address
+        const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
 
-    // Connect to MetaMask
-    async function connectWallet() {
-        if (window.ethereum) {
-            web3 = new Web3(window.ethereum);
-            try {
-                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
-                document.getElementById('tenco-balance').style.display = 'block'; // Show the balance element
+        // Connect to MetaMask
+        async function connectWallet() {
+            // Check if MetaMask is installed
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
+                    document.getElementById('connect-button').innerText = "Disconnect Wallet";
+                    document.getElementById('tenco-balance').style.display = "block"; // Show balance section
+                    
+                    // Initialize the contract
+                    initContract();
+                    
+                    // Fetch the balance of TENCO tokens
+                    await fetchTencoBalance(accounts[0]);
 
-                // Initialize the contract
-                initContract();
+                    // Event listeners for account and network changes
+                    window.ethereum.on('accountsChanged', function (accounts) {
+                        if (accounts.length > 0) {
+                            document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
+                            fetchTencoBalance(accounts[0]);
+                        } else {
+                            document.getElementById('wallet-address').innerText = "Wallet disconnected";
+                            document.getElementById('connect-button').innerText = "Connect Wallet";
+                            document.getElementById('tenco-balance').style.display = "none"; // Hide balance section
+                        }
+                    });
 
-                // Fetch and display the total TENCO balance
-                fetchTencoBalance(accounts[0]);
+                    window.ethereum.on('chainChanged', function (chainId) {
+                        window.location.reload(); // Reload the page when the network changes
+                    });
 
-                // Event listeners for account and network changes
-                window.ethereum.on('accountsChanged', function (accounts) {
-                    if (accounts.length > 0) {
-                        document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
-                        fetchTencoBalance(accounts[0]); // Update balance on account change
-                    } else {
-                        document.getElementById('wallet-address').innerText = "Wallet disconnected";
-                        document.getElementById('tenco-balance').style.display = 'none'; // Hide balance on disconnect
-                    }
-                });
-
-                window.ethereum.on('chainChanged', function (chainId) {
-                    window.location.reload();
-                });
-
-            } catch (error) {
-                console.error("Error connecting to MetaMask:", error);
-                alert("Please allow access to connect your wallet.");
+                } catch (error) {
+                    console.error("Error connecting to MetaMask:", error);
+                    alert("Please allow access to connect your wallet.");
+                }
+            } else {
+                alert("Please install MetaMask to connect.");
             }
-        } else {
-            alert("Please install MetaMask to connect.");
         }
-    }
 
-    // Initialize the smart contract
-    function initContract() {
-        contract = new web3.eth.Contract(contractABI, contractAddress);
-        console.log("Contract initialized:", contract);
-    }
-
-    // Fetch total TENCO balance
-    async function fetchTencoBalance(address) {
-        try {
-            const balance = await contract.methods.balanceOf(address).call(); // Replace with your balance function
-            const balanceInTenco = web3.utils.fromWei(balance, 'ether'); // Convert to TENCOS
-            document.getElementById('balance-amount').innerText = balanceInTenco; // Display balance
-        } catch (error) {
-            console.error("Error fetching balance:", error);
-            alert("Error fetching balance.");
+        // Initialize the smart contract
+        function initContract() {
+            contract = new web3.eth.Contract(contractABI, contractAddress);
+            console.log("Contract initialized:", contract);
         }
-    }
 
-    // Stake Tokens
-    async function stakeTokens() {
-        const amount = document.getElementById('stake-amount').value;
-        const amountInWei = web3.utils.toWei(amount, 'ether');
-        const accounts = await web3.eth.getAccounts();
-
-        try {
-            await contract.methods.stake(amountInWei).send({ from: accounts[0] });
-            alert("Staking successful!");
-        } catch (error) {
-            console.error("Error in staking:", error);
-            alert("Error in staking.");
+        // Fetch total TENCO balance
+        async function fetchTencoBalance(address) {
+            try {
+                console.log("Fetching balance for address:", address); // Debug log
+                const balance = await contract.methods.balanceOf(address).call(); // Replace with your balance function
+                console.log("Balance fetched:", balance); // Debug log
+                const balanceInTenco = web3.utils.fromWei(balance, 'ether'); // Convert to TENCO
+                document.getElementById('balance-amount').innerText = balanceInTenco; // Display balance
+            } catch (error) {
+                console.error("Error fetching balance:", error);
+                alert("Error fetching balance.");
+            }
         }
-    }
 
-    // Claim Rewards
-    async function claimRewards() {
-        const accounts = await web3.eth.getAccounts();
+        // Stake Tokens
+        async function stakeTokens() {
+            const amount = document.getElementById('stake-amount').value;
+            const amountInWei = web3.utils.toWei(amount, 'ether');
+            const accounts = await web3.eth.getAccounts();
 
-        try {
-            await contract.methods.claimRewards().send({ from: accounts[0] });
-            alert("Rewards claimed!");
-        } catch (error) {
-            console.error("Error claiming rewards:", error);
-            alert("Error claiming rewards.");
+            try {
+                await contract.methods.stake(amountInWei).send({ from: accounts[0] });
+                alert("Staking successful!");
+            } catch (error) {
+                console.error("Error in staking:", error);
+                alert("Error in staking.");
+            }
         }
-    }
 
-    // Check Exclusive Access
-    async function checkAccess() {
-        const accounts = await web3.eth.getAccounts();
+        // Claim Rewards
+        async function claimRewards() {
+            const accounts = await web3.eth.getAccounts();
 
-        try {
-            const result = await contract.methods.checkAccess().call({ from: accounts[0] });
-            document.getElementById('access-status').innerText = result ? "Access Granted" : "Access Denied";
-        } catch (error) {
-            console.error("Error checking access:", error);
-            alert("Error checking access.");
+            try {
+                await contract.methods.claimRewards().send({ from: accounts[0] });
+                alert("Rewards claimed!");
+            } catch (error) {
+                console.error("Error claiming rewards:", error);
+                alert("Error claiming rewards.");
+            }
         }
-    }
+
+        // Check Exclusive Access
+        async function checkAccess() {
+            const accounts = await web3.eth.getAccounts();
+
+            try {
+                const result = await contract.methods.checkAccess().call({ from: accounts[0] });
+                document.getElementById('access-status').innerText = result ? "Access Granted" : "Access Denied";
+            } catch (error) {
+                console.error("Error checking access:", error);
+                alert("Error checking access.");
+            }
+        }
     </script>
 </body>
 </html>
