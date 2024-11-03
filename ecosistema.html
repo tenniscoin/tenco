@@ -107,6 +107,7 @@
     let contract;
     const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your contract address
     const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
+    let isConnected = false; // Track connection status
 
     // Connect to MetaMask
     async function connectWallet() {
@@ -118,16 +119,16 @@
                 // Request account access
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                 document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
-                
-                // Initialize the contract
                 initContract();
+                isConnected = true; // Set the connection status to true
+                document.getElementById('connect-button').innerText = "Disconnect Wallet"; // Change button text
 
                 // Event listeners for account and network changes
                 window.ethereum.on('accountsChanged', function (accounts) {
                     if (accounts.length > 0) {
                         document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
                     } else {
-                        document.getElementById('wallet-address').innerText = "Wallet disconnected";
+                        disconnectWallet();
                     }
                 });
 
@@ -150,47 +151,54 @@
         console.log("Contract initialized:", contract);
     }
 
+    // Disconnect Wallet
+    function disconnectWallet() {
+        isConnected = false; // Set connection status to false
+        document.getElementById('wallet-address').innerText = ""; // Clear wallet address
+        document.getElementById('connect-button').innerText = "Connect Wallet"; // Reset button text
+        alert("Disconnected from wallet."); // Notify user
+    }
 
-        // Stake Tokens
-        async function stakeTokens() {
-            const amount = document.getElementById('stake-amount').value;
-            const amountInWei = web3.utils.toWei(amount, 'ether');
-            const accounts = await web3.eth.getAccounts();
+    // Stake Tokens
+    async function stakeTokens() {
+        const amount = document.getElementById('stake-amount').value;
+        const amountInWei = web3.utils.toWei(amount, 'ether');
+        const accounts = await web3.eth.getAccounts();
 
-            try {
-                await contract.methods.stake(amountInWei).send({ from: accounts[0] });
-                alert("Staking successful!");
-            } catch (error) {
-                console.error("Error in staking:", error);
-                alert("Error in staking.");
-            }
+        try {
+            await contract.methods.stake(amountInWei).send({ from: accounts[0] });
+            alert("Staking successful!");
+        } catch (error) {
+            console.error("Error in staking:", error);
+            alert("Error in staking.");
         }
+    }
 
-        // Claim Rewards
-        async function claimRewards() {
-            const accounts = await web3.eth.getAccounts();
+    // Claim Rewards
+    async function claimRewards() {
+        const accounts = await web3.eth.getAccounts();
 
-            try {
-                await contract.methods.claimRewards().send({ from: accounts[0] });
-                alert("Rewards claimed!");
-            } catch (error) {
-                console.error("Error claiming rewards:", error);
-                alert("Error claiming rewards.");
-            }
+        try {
+            await contract.methods.claimRewards().send({ from: accounts[0] });
+            alert("Rewards claimed!");
+        } catch (error) {
+            console.error("Error claiming rewards:", error);
+            alert("Error claiming rewards.");
         }
+    }
 
-        // Check Exclusive Access
-        async function checkAccess() {
-            const accounts = await web3.eth.getAccounts();
+    // Check Exclusive Access
+    async function checkAccess() {
+        const accounts = await web3.eth.getAccounts();
 
-            try {
-                const result = await contract.methods.checkAccess().call({ from: accounts[0] });
-                document.getElementById('access-status').innerText = result ? "Access Granted" : "Access Denied";
-            } catch (error) {
-                console.error("Error checking access:", error);
-                alert("Error checking access.");
-            }
+        try {
+            const result = await contract.methods.checkAccess().call({ from: accounts[0] });
+            document.getElementById('access-status').innerText = result ? "Access Granted" : "Access Denied";
+        } catch (error) {
+            console.error("Error checking access:", error);
+            alert("Error checking access.");
         }
+    }
     </script>
 </body>
 </html>
