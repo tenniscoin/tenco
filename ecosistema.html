@@ -8,9 +8,9 @@
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.2/dist/web3.min.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif; /* Replace with your font */
-            background-color: #f4f4f4; /* Adjust background color */
-            color: #333; /* Text color */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
             margin: 0;
             padding: 20px;
         }
@@ -24,7 +24,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fff; /* Adjust card color */
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -32,7 +32,7 @@
         section {
             margin-bottom: 20px;
             padding: 10px;
-            border: 1px solid #ddd; /* Border for each section */
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
 
@@ -73,7 +73,7 @@
     <main class="ecosystem-container">
         <!-- Connect Wallet -->
         <section class="connect-wallet">
-            <button id="connect-button" onclick="connectWallet()">Connect Wallet</button>
+            <button id="connect-button" onclick="toggleWalletConnection()">Connect Wallet</button>
             <p id="wallet-address"></p>
         </section>
 
@@ -103,70 +103,110 @@
     </footer>
 
     <script>
-    let web3;
-    let contract;
-    const contractAddress = "0xYourActualContractAddress"; // Replace with your actual contract address
-    const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
-    let currentAccount = null; // Track connected account
+        let web3;
+        let contract;
+        const contractAddress = "0xYourActualContractAddress"; // Replace with your actual contract address
+        const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
+        let currentAccount = null; // Track connected account
 
-    // Connect or Disconnect Wallet
-    async function toggleWalletConnection() {
-        if (currentAccount) {
-            disconnectWallet();
-        } else {
-            await connectWallet();
-        }
-    }
-
-    // Connect to MetaMask
-    async function connectWallet() {
-        if (window.ethereum) {
-            web3 = new Web3(window.ethereum);
-            try {
-                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                currentAccount = accounts[0]; // Save the connected account
-                document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
-                initContract();
-                document.getElementById('connect-button').innerText = "Disconnect Wallet"; // Change button text
-
-                // Event listeners for account changes
-                window.ethereum.on('accountsChanged', function (accounts) {
-                    if (accounts.length > 0) {
-                        currentAccount = accounts[0]; // Update current account
-                        document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
-                    } else {
-                        disconnectWallet(); // No accounts available, disconnect
-                    }
-                });
-
-                window.ethereum.on('chainChanged', function (chainId) {
-                    window.location.reload(); // Reload the page when the network changes
-                });
-
-            } catch (error) {
-                console.error("Error connecting to MetaMask:", error);
-                alert("Please allow access to connect your wallet.");
+        // Toggle connection status
+        async function toggleWalletConnection() {
+            if (currentAccount) {
+                disconnectWallet();
+            } else {
+                await connectWallet();
             }
-        } else {
-            alert("Please install MetaMask to connect.");
         }
-    }
 
-    // Initialize the smart contract
-    function initContract() {
-        console.log("Initializing contract at address:", contractAddress); // Debugging log
-        contract = new web3.eth.Contract(contractABI, contractAddress);
-        console.log("Contract initialized:", contract);
-    }
+        // Connect to MetaMask
+        async function connectWallet() {
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    currentAccount = accounts[0]; // Save the connected account
+                    document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
+                    initContract();
+                    document.getElementById('connect-button').innerText = "Disconnect Wallet"; // Change button text
 
-    // Disconnect Wallet
-    function disconnectWallet() {
-        currentAccount = null; // Clear the current account
-        document.getElementById('wallet-address').innerText = ""; // Clear wallet address
-        document.getElementById('connect-button').innerText = "Connect Wallet"; // Reset button text
-        alert("Disconnected from wallet."); // Notify user
-    }
-</script>
+                    // Handle account changes
+                    window.ethereum.on('accountsChanged', function (accounts) {
+                        if (accounts.length > 0) {
+                            currentAccount = accounts[0]; // Update current account
+                            document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
+                        } else {
+                            disconnectWallet(); // No accounts available, disconnect
+                        }
+                    });
 
+                    window.ethereum.on('chainChanged', function (chainId) {
+                        window.location.reload(); // Reload the page when the network changes
+                    });
+
+                } catch (error) {
+                    console.error("Error connecting to MetaMask:", error);
+                    alert("Please allow access to connect your wallet.");
+                }
+            } else {
+                alert("Please install MetaMask to connect.");
+            }
+        }
+
+        // Initialize the smart contract
+        function initContract() {
+            console.log("Initializing contract at address:", contractAddress); // Debugging log
+            contract = new web3.eth.Contract(contractABI, contractAddress);
+            console.log("Contract initialized:", contract);
+        }
+
+        // Disconnect Wallet
+        function disconnectWallet() {
+            currentAccount = null; // Clear the current account
+            document.getElementById('wallet-address').innerText = ""; // Clear wallet address
+            document.getElementById('connect-button').innerText = "Connect Wallet"; // Reset button text
+            alert("Disconnected from wallet."); // Notify user
+        }
+
+        // Stake Tokens
+        async function stakeTokens() {
+            const amount = document.getElementById('stake-amount').value;
+            const amountInWei = web3.utils.toWei(amount, 'ether');
+            const accounts = await web3.eth.getAccounts();
+
+            try {
+                await contract.methods.stake(amountInWei).send({ from: accounts[0] });
+                alert("Staking successful!");
+            } catch (error) {
+                console.error("Error in staking:", error);
+                alert("Error in staking.");
+            }
+        }
+
+        // Claim Rewards
+        async function claimRewards() {
+            const accounts = await web3.eth.getAccounts();
+
+            try {
+                await contract.methods.claimRewards().send({ from: accounts[0] });
+                alert("Rewards claimed!");
+            } catch (error) {
+                console.error("Error claiming rewards:", error);
+                alert("Error claiming rewards.");
+            }
+        }
+
+        // Check Exclusive Access
+        async function checkAccess() {
+            const accounts = await web3.eth.getAccounts();
+
+            try {
+                const result = await contract.methods.checkAccess().call({ from: accounts[0] });
+                document.getElementById('access-status').innerText = result ? "Access Granted" : "Access Denied";
+            } catch (error) {
+                console.error("Error checking access:", error);
+                alert("Error checking access.");
+            }
+        }
+    </script>
 </body>
 </html>
