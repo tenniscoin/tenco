@@ -124,18 +124,18 @@
             web3 = new Web3(window.ethereum);
             try {
                 const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                currentAccount = accounts[0];
+                currentAccount = accounts[0]; // Save the connected account
                 document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
                 initContract();
-                document.getElementById('connect-button').innerText = "Disconnect Wallet";
+                document.getElementById('connect-button').innerText = "Disconnect Wallet"; // Change button text
 
                 // Event listeners for account changes
                 window.ethereum.on('accountsChanged', function (accounts) {
                     if (accounts.length > 0) {
-                        currentAccount = accounts[0];
+                        currentAccount = accounts[0]; // Update current account
                         document.getElementById('wallet-address').innerText = "Connected Wallet: " + currentAccount;
                     } else {
-                        disconnectWallet();
+                        disconnectWallet(); // No accounts available, disconnect
                     }
                 });
 
