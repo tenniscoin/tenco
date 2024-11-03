@@ -6,6 +6,71 @@
     <title>TENCO Ecosystem</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.2/dist/web3.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .ecosystem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007b33;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background-color: #005a2a;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        #tenco-balance {
+            text-align: center;
+            font-weight: bold;
+            color: #007b33;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,10 +80,12 @@
     <main class="ecosystem-container">
         <!-- Connect Wallet -->
         <section class="connect-wallet">
-            <button id="connect-button" onclick="connectWallet()">Connect Wallet</button>
-            <p id="wallet-address"></p>
+            <button id="connect-button" onclick="toggleWalletConnection()">Connect Wallet</button>
+            <p id="wallet-address" style="display: none;"></p>
             <p id="tenco-balance" style="display: none;">Total TENCO: <span id="balance-amount"></span></p>
         </section>
+
+        <!-- Staking, Rewards, Exclusive Access sections here, if needed -->
     </main>
 
     <footer>
@@ -31,7 +98,15 @@
         const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your actual contract address
         const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
 
-        // Connect or disconnect wallet
+        async function toggleWalletConnection() {
+            if (document.getElementById("connect-button").innerText === "Connect Wallet") {
+                await connectWallet();
+            } else {
+                disconnectWallet();
+            }
+        }
+
+        // Connect wallet
         async function connectWallet() {
             if (window.ethereum) {
                 web3 = new Web3(window.ethereum);
@@ -39,19 +114,20 @@
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                     const account = accounts[0];
 
-                    // Update the UI for connected wallet
-                    document.getElementById('wallet-address').innerText = "Connected Wallet: " + account;
-                    document.getElementById('connect-button').innerText = "Disconnect Wallet";
-                    document.getElementById('tenco-balance').style.display = "block"; 
+                    // Update UI for connected wallet
+                    document.getElementById("wallet-address").style.display = "block";
+                    document.getElementById("wallet-address").innerText = "Connected Wallet: " + account;
+                    document.getElementById("connect-button").innerText = "Disconnect Wallet";
+                    document.getElementById("tenco-balance").style.display = "block";
 
-                    initContract(); // Initialize contract
-                    fetchTencoBalance(account); // Fetch and display TENCO balance
+                    initContract();
+                    fetchTencoBalance(account);
 
                     // Event listener for account change
-                    window.ethereum.on('accountsChanged', (accounts) => {
+                    window.ethereum.on("accountsChanged", (accounts) => {
                         if (accounts.length > 0) {
                             const newAccount = accounts[0];
-                            document.getElementById('wallet-address').innerText = "Connected Wallet: " + newAccount;
+                            document.getElementById("wallet-address").innerText = "Connected Wallet: " + newAccount;
                             fetchTencoBalance(newAccount);
                         } else {
                             disconnectWallet(); // Disconnect if no account is selected
@@ -59,7 +135,7 @@
                     });
 
                     // Event listener for network change
-                    window.ethereum.on('chainChanged', () => {
+                    window.ethereum.on("chainChanged", () => {
                         window.location.reload();
                     });
                 } catch (error) {
@@ -73,9 +149,9 @@
 
         // Disconnect wallet
         function disconnectWallet() {
-            document.getElementById('wallet-address').innerText = "Wallet disconnected";
-            document.getElementById('connect-button').innerText = "Connect Wallet";
-            document.getElementById('tenco-balance').style.display = "none";
+            document.getElementById("wallet-address").style.display = "none";
+            document.getElementById("tenco-balance").style.display = "none";
+            document.getElementById("connect-button").innerText = "Connect Wallet";
         }
 
         // Initialize the contract
@@ -87,8 +163,8 @@
         async function fetchTencoBalance(address) {
             try {
                 const balance = await contract.methods.balanceOf(address).call();
-                const balanceInTenco = web3.utils.fromWei(balance, 'ether');
-                document.getElementById('balance-amount').innerText = balanceInTenco;
+                const balanceInTenco = web3.utils.fromWei(balance, "ether");
+                document.getElementById("balance-amount").innerText = balanceInTenco;
             } catch (error) {
                 console.error("Error fetching TENCO balance:", error);
                 alert("Error fetching balance.");
