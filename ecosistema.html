@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TENCO Ecosystem</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing CSS file -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.2/dist/web3.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Replace with your font */
+            background-color: #f4f4f4; /* Adjust background color */
+            color: #333; /* Text color */
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .ecosystem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff; /* Adjust card color */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd; /* Border for each section */
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007b33; /* Darker green button color */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block; /* Allows centering */
+            margin: 0 auto; /* Center the button */
+        }
+
+        button:hover {
+            background-color: #005a2a; /* Darker hover color */
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd; /* Input border */
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TENCO Ecosystem</h1>
+    </header>
+
+    <main class="ecosystem-container">
+        <!-- Connect Wallet -->
+        <section class="connect-wallet">
+            <button id="connect-button" onclick="connectWallet()">Connect Wallet</button>
+            <p id="wallet-address"></p>
+        </section>
+
+        <!-- Staking -->
+        <section class="staking-section">
+            <h2>Stake TENCO</h2>
+            <input type="number" id="stake-amount" placeholder="Enter amount of TENCO">
+            <button onclick="stakeTokens()">Stake</button>
+        </section>
+
+        <!-- Rewards -->
+        <section class="rewards-section">
+            <h2>Claim Rewards</h2>
+            <button onclick="claimRewards()">Claim Rewards</button>
+        </section>
+
+        <!-- Exclusive Access -->
+        <section class="access-section">
+            <h2>Exclusive Access</h2>
+            <button onclick="checkAccess()">Check Access</button>
+            <p id="access-status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TennisCoin. All rights reserved.</p>
+    </footer>
+
+    <script>
+    let web3;
+    let contract;
+    const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your contract address
+    const contractABI = [ /* your contract ABI here */ ]; // Replace with your contract ABI
+
+    // Connect to MetaMask
+    async function connectWallet() {
+        // Check if MetaMask is installed
+        if (window.ethereum) {
+            // Create a Web3 instance
+            web3 = new Web3(window.ethereum);
+            try {
+                // Request account access
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
+                
+                // Initialize the contract
+                initContract();
+
+                // Event listeners for account and network changes
+                window.ethereum.on('accountsChanged', function (accounts) {
+                    if (accounts.length > 0) {
+                        document.getElementById('wallet-address').innerText = "Connected Wallet: " + accounts[0];
+                    } else {
+                        document.getElementById('wallet-address').innerText = "Wallet disconnected";
+                    }
+                });
+
+                window.ethereum.on('chainChanged', function (chainId) {
+                    window.location.reload(); // Reload the page when the network changes
+                });
+
+            } catch (error) {
+                console.error("Error connecting to MetaMask:", error);
+                alert("Please allow access to connect your wallet.");
+            }
+        } else {
+            alert("Please install MetaMask to connect.");
+        }
+    }
+
+    // Initialize the smart contract
+    function initContract() {
+        contract = new web3.eth.Contract(contractABI, contractAddress);
+        console.log("Contract initialized:", contract);
+    }
+
+
+        // Stake Tokens
+        async function stakeTokens() {
+            const amount = document.getElementById('stake-amount').value;
+            const amountInWei = web3.utils.toWei(amount, 'ether');
+            const accounts = await web3.eth.getAccounts();
+
+            try {
+                await contract.methods.stake(amountInWei).send({ from: accounts[0] });
+                alert("Staking successful!");
+            } catch (error) {
+                console.error("Error in staking:", error);
+                alert("Error in staking.");
+            }
+        }
+
+        // Claim Rewards
+        async function claimRewards() {
+            const accounts = await web3.eth.getAccounts();
+
+            try {
+                await contract.methods.claimRewards().send({ from: accounts[0] });
+                alert("Rewards claimed!");
+            } catch (error) {
+                console.error("Error claiming rewards:", error);
+                alert("Error claiming rewards.");
+            }
+        }
+
+        // Check Exclusive Access
+        async function checkAccess() {
+            const accounts = await web3.eth.getAccounts();
+
+            try {
+                const result = await contract.methods.checkAccess().call({ from: accounts[0] });
+                document.getElementById('access-status').innerText = result ? "Access Granted" : "Access Denied";
+            } catch (error) {
+                console.error("Error checking access:", error);
+                alert("Error checking access.");
+            }
+        }
+    </script>
+</body>
+</html>
