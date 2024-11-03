@@ -4,85 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TENCO Ecosystem</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.1/web3.min.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing CSS file -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.2/dist/web3.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
-            text-align: center;
+            margin: 0;
             padding: 20px;
         }
 
-        h1 {
-            color: #2c3e50;
+        header {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        #connectWalletBtn {
-            background-color: #27ae60; /* Darker green */
+        .ecosystem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007b33;
             color: white;
             border: none;
-            padding: 15px 25px;
-            font-size: 16px;
-            cursor: pointer;
+            padding: 10px 15px;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
         }
 
-        #connectWalletBtn:hover {
-            background-color: #219653; /* Darker on hover */
+        button:hover {
+            background-color: #005a2a;
         }
 
-        #tencoBalance {
+        input[type="number"] {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 0.9em;
+        }
+
+        #wallet-info {
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>TENCO Ecosystem</h1>
-    <button id="connectWalletBtn">Connect Wallet</button>
-    <p id="tencoBalance"></p>
+    <header>
+        <h1>TENCO Ecosystem</h1>
+    </header>
+
+    <main class="ecosystem-container">
+        <!-- Connect Wallet -->
+        <section class="connect-wallet">
+            <button id="connect-button" onclick="connectWallet()">Connect Wallet</button>
+            <div id="wallet-info">
+                <p id="wallet-address"></p>
+                <p id="total-tenco"></p>
+            </div>
+        </section>
+
+        <!-- Staking -->
+        <section class="staking-section">
+            <h2>Stake TENCO</h2>
+            <input type="number" id="stake-amount" placeholder="Enter amount of TENCO">
+            <button onclick="stakeTokens()">Stake</button>
+        </section>
+
+        <!-- Rewards -->
+        <section class="rewards-section">
+            <h2>Claim Rewards</h2>
+            <button onclick="claimRewards()">Claim Rewards</button>
+        </section>
+
+        <!-- Exclusive Access -->
+        <section class="access-section">
+            <h2>Exclusive Access</h2>
+            <button onclick="checkAccess()">Check Access</button>
+            <p id="access-status"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TennisCoin. All rights reserved.</p>
+    </footer>
 
     <script>
-        // Replace with your contract address and ABI
-        const contractAddress = "0x263F4d28F73Be9848BD6D2338dac3d37D07B9DcB";
-        const abi = [[{"inputs":[{"internalType":"string","name":"_NAME","type":"string"},{"internalType":"string","name":"_SYMBOL","type":"string"},{"internalType":"uint256","name":"_DECIMALS","type":"uint256"},{"internalType":"uint256","name":"_supply","type":"uint256"},{"internalType":"uint256","name":"_txFee","type":"uint256"},{"internalType":"uint256","name":"_lpFee","type":"uint256"},{"internalType":"uint256","name":"_DexFee","type":"uint256"},{"internalType":"address","name":"routerAddress","type":"address"},{"internalType":"address","name":"feeaddress","type":"address"},{"internalType":"address","name":"tokenOwner","type":"address"},{"internalType":"address","name":"service","type":"address"}],"stateMutability":"payable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"minTokensBeforeSwap","type":"uint256"}],"name":"MinTokensBeforeSwapUpdated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"tokensSwapped","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"ethReceived","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"tokensIntoLiqudity","type":"uint256"}],"name":"SwapAndLiquify","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"enabled","type":"bool"}],"name":"SwapAndLiquifyEnabledUpdated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"Optimization","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_devFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_devWalletAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_liquidityFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_lockTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_maxTxAmount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_taxFee","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tAmount","type":"uint256"}],"name":"deliver","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"excludeFromFee","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"excludeFromReward","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"includeInFee","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"includeInReward","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"isExcludedFromFee","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"isExcludedFromReward","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"time","type":"uint256"}],"name":"lock","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"numTokensSellToAddToLiquidity","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tAmount","type":"uint256"},{"internalType":"bool","name":"deductTransferFee","type":"bool"}],"name":"reflectionFromToken","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"devFee","type":"uint256"}],"name":"setDevFeePercent","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_addr","type":"address"}],"name":"setDevWalletAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"liquidityFee","type":"uint256"}],"name":"setLiquidityFeePercent","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"maxTxPercent","type":"uint256"}],"name":"setMaxTxPercent","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amountToUpdate","type":"uint256"}],"name":"setNumTokensSellToAddToLiquidity","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newRouter","type":"address"}],"name":"setRouterAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_enabled","type":"bool"}],"name":"setSwapAndLiquifyEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"taxFee","type":"uint256"}],"name":"setTaxFeePercent","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"swapAndLiquifyEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"rAmount","type":"uint256"}],"name":"tokenFromReflection","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalFees","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"uniswapV2Pair","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"uniswapV2Router","outputs":[{"internalType":"contract IUniswapV2Router02","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"unlock","outputs":[],"stateMutability":"nonpayable","type":"function"},{"stateMutability":"payable","type":"receive"}]];
-
         let web3;
         let contract;
-
-        document.getElementById('connectWalletBtn').addEventListener('click', connectWallet);
+        const contractAddress = "0x263F4d28F73Be9848BD6D2338dac3d37D07B9DcB"; // Replace with your contract address
+        const contractABI = [ /* Your complete ABI here */ ]; // Ensure this is complete
 
         async function connectWallet() {
-            if (typeof window.ethereum !== 'undefined') {
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
                 try {
                     await window.ethereum.request({ method: 'eth_requestAccounts' });
                     const accounts = await web3.eth.getAccounts();
-                    const account = accounts[0];
-
-                    // Initialize web3 and contract here
-                    web3 = new Web3(window.ethereum);
-                    contract = new web3.eth.Contract(abi, contractAddress);
-                    
-                    await displayTotalTENCO(account);
+                    document.getElementById('wallet-address').innerText = `Wallet Address: ${accounts[0]}`;
+                    contract = new web3.eth.Contract(contractABI, contractAddress);
+                    getTotalTenco(accounts[0]);
                 } catch (error) {
-                    console.error("Error connecting to wallet:", error);
+                    console.error('User denied account access');
                 }
             } else {
-                alert("Please install MetaMask!");
+                alert('Please install MetaMask!');
             }
         }
 
-        async function displayTotalTENCO(account) {
-            try {
-                const balance = await contract.methods.balanceOf(account).call();
-                console.log("TENCO balance is:", balance);
-                document.getElementById('tencoBalance').innerText = `Your TENCO balance: ${balance}`;
-            } catch (error) {
-                console.error("Error fetching TENCO balance:", error);
-                document.getElementById('tencoBalance').innerText = "Error fetching balance";
-            }
+        async function getTotalTenco(address) {
+            const balance = await contract.methods.balanceOf(address).call();
+            const decimals = await contract.methods.decimals().call();
+            const totalTenco = balance / (10 ** decimals);
+            document.getElementById('total-tenco').innerText = `Total TENCO: ${totalTenco}`;
+        }
+
+        async function stakeTokens() {
+            const amount = document.getElementById('stake-amount').value;
+            const accounts = await web3.eth.getAccounts();
+            const amountInWei = web3.utils.toWei(amount, 'ether'); // Adjust this as needed
+            // Implement your staking function here
+        }
+
+        async function claimRewards() {
+            const accounts = await web3.eth.getAccounts();
+            // Implement your claim rewards function here
+        }
+
+        async function checkAccess() {
+            const accounts = await web3.eth.getAccounts();
+            // Implement your access check function here
         }
     </script>
 </body>
