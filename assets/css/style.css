@@ -3436,7 +3436,7 @@ label {
   width: 100px;
 }
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area {
-  padding: 30px 30px 30px;
+  padding: 30px 0;
 }
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-menu-wrap nav .mobile-menu li {
   display: block;
@@ -9013,14 +9013,14 @@ a.icon-socials:hover {
 }
 @media (max-width: 767.98px) {
   .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-top {
-    padding: 15px 30px 13px 30px;
+    padding: 15px 0;
     border-bottom: 0;
   }
   .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-top .mobile-header-logo a img {
     width: 140px;
   }
   .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area {
-    padding: 30px;
+    padding: 30px 0;
   }
   .block-more-question {
     flex-wrap: wrap;
@@ -9359,7 +9359,10 @@ a.icon-socials:hover {
     width: 100%;
   }
   .header .btn-brand-4-medium {
-    display: none;
+    padding: 6px 10px;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 6px;
   }
   .box-image-rect-both::after {
     height: 169px;
