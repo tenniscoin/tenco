@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="86c1f9cf-2353-4c6d-a196-a287ad3bd24e" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="53040">
+              <caret line="3120" column="21" selection-start-line="3120" selection-start-column="21" selection-end-line="3120" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="528" column="33" lean-forward="true" selection-start-line="528" selection-start-column="33" selection-end-line="528" selection-end-column="33" />
+              <folding>
+                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/airdrop.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1615">
+              <caret line="95" column="64" selection-start-line="95" selection-start-column="64" selection-end-line="95" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bountyprogram.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="140" selection-start-line="22" selection-start-column="140" selection-end-line="22" selection-end-column="140" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>presale</find>
+      <find>btn-neutral</find>
+      <find>video-gallery</find>
+      <find>.form-group input:focus</find>
+      <find>Contact</find>
+      <find>header.removeClass(&quot;stick&quot;)</find>
+      <find>.list-feature</find>
+      <find>.list-feature li</find>
+      <find>This mechanism</find>
+      <find>media</find>
+      <find>template</find>
+      <find>imgs</find>
+      <find>twitter</find>
+      <find>newslette</find>
+      <find>newsletter</find>
+      <find>.box-newsletter</find>
+      <find>form-control</find>
+      <find>.form-group input</find>
+      <find>.form-group input, .form-group select</find>
+      <find>social</find>
+      <find>contact</find>
+      <find>footer</find>
+      <find>mobile</find>
+      <find>.header .main-menu li a</find>
+      <find>header sticky-bar</find>
+      <find>.header .main-header .header-right</find>
+      <find>@media</find>
+      <find>assets/img/logo.svg</find>
+      <find>logo</find>
+      <find>nivia</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Six</replace>
+      <replace>Seven</replace>
+      <replace>&lt;h3 class=&quot;text-22-bold&quot;&gt;</replace>
+      <replace>card-lead align-items-start mb-3</replace>
+      <replace>text-20-medium</replace>
+      <replace>text-22-bold mb-3</replace>
+      <replace>text-22-bold mb-2</replace>
+      <replace>&lt;p class=&quot;text-md&quot;&gt;</replace>
+      <replace>&lt;span class=&quot;count_&quot;&gt;</replace>
+      <replace>nav-link</replace>
+      <replace>&lt;div class=&quot;card-lead mb-10 flex-column&quot;&gt;</replace>
+      <replace>0 0 0 12px</replace>
+      <replace>0 0 0 26px</replace>
+      <replace>0</replace>
+      <replace>#C5FF41</replace>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\laragon\www\html\tenniscoin\assets\css</dir>
+      <dir>C:\laragon\www\html\tenniscoin\assets\imgs</dir>
+      <dir>C:\laragon\www\html\tenniscoin</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/assets/img/child-face-svgrepo-com.svg" />
+        <option value="$PROJECT_DIR$/assets/img/diamond-svgrepo-com.svg" />
+        <option value="$PROJECT_DIR$/assets/img/events-svgrepo-com.svg" />
+        <option value="$PROJECT_DIR$/assets/img/reward-svgrepo-com.svg" />
+        <option value="$PROJECT_DIR$/assets/img/diamond.svg" />
+        <option value="$PROJECT_DIR$/assets/img/events.svg" />
+        <option value="$PROJECT_DIR$/assets/img/reward.svg" />
+        <option value="$PROJECT_DIR$/assets/img/child.svg" />
+        <option value="$PROJECT_DIR$/contact.php" />
+        <option value="$PROJECT_DIR$/assets/js/main.js" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/news.php" />
+        <option value="$PROJECT_DIR$/airdrop.php" />
+        <option value="$PROJECT_DIR$/bountyprogram.php" />
+        <option value="$PROJECT_DIR$/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tenniscoin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tenniscoin" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../anapi2023" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\html\tenniscoin\pdf" />
+      <recent name="C:\laragon\www\html\tenniscoin\assets\css\plugins\old" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\html\tenniscoin" />
+      <recent name="C:\laragon\www\html\tenniscoin\assets\video" />
+      <recent name="C:\laragon\www\html\tenniscoin\assets\img" />
+      <recent name="C:\laragon\www\html\tenniscoin\assets\css\vendors" />
+      <recent name="C:\laragon\www\html\tenniscoin\assets\css\plugins" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="86c1f9cf-2353-4c6d-a196-a287ad3bd24e" name="Default Changelist" comment="" />
+      <created>1731500723066</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731500723066</updated>
+      <workItem from="1731500724262" duration="250000" />
+      <workItem from="1731573126720" duration="13000" />
+      <workItem from="1731624601941" duration="9365000" />
+      <workItem from="1731662233244" duration="336000" />
+      <workItem from="1731663912793" duration="132000" />
+      <workItem from="1731778385704" duration="14031000" />
+      <workItem from="1731835327643" duration="25294000" />
+      <workItem from="1731919658582" duration="775000" />
+      <workItem from="1731928765666" duration="3374000" />
+      <workItem from="1731999850881" duration="626000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="54196000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12082671" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.3298887" />
+      <window_info anchor="right" id="Database" order="4" side_tool="true" weight="0.3298887" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/assets/css/plugins/old/bootstrap.css" />
+    <entry file="file://$PROJECT_DIR$/assets/css/plugins/bootstrap.css.map">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/plugins/old/bootstrap.css.map" />
+    <entry file="file://$PROJECT_DIR$/assets/css/vendors/bootstrap.min.css.map">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/plugins/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="7263" column="9" selection-start-line="7263" selection-start-column="1" selection-end-line="7263" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css.map">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-3.html" />
+    <entry file="file://$PROJECT_DIR$/index-5.html" />
+    <entry file="file://$PROJECT_DIR$/assets/imgs/template/icons/arrow-right.svg" />
+    <entry file="file://$PROJECT_DIR$/assets/img/child.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/img/reward.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/img/events.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/img/diamond.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/img/fb.svg" />
+    <entry file="file://$PROJECT_DIR$/assets/img/icons8-twitterx.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/imgs/template/icons/fb.svg" />
+    <entry file="file://$PROJECT_DIR$/feature-2.html" />
+    <entry file="file://$PROJECT_DIR$/feature.html" />
+    <entry file="file://$PROJECT_DIR$/comming-soon.html" />
+    <entry file="file://$PROJECT_DIR$/index-1.html" />
+    <entry file="file://$PROJECT_DIR$/index-2.html" />
+    <entry file="file://$PROJECT_DIR$/contact.php" />
+    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53040">
+          <caret line="3120" column="21" selection-start-line="3120" selection-start-column="21" selection-end-line="3120" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/airdrop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="95" column="64" selection-start-line="95" selection-start-column="64" selection-end-line="95" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="140" selection-start-line="22" selection-start-column="140" selection-end-line="22" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bountyprogram.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="528" column="33" lean-forward="true" selection-start-line="528" selection-start-column="33" selection-end-line="528" selection-end-column="33" />
+          <folding>
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
