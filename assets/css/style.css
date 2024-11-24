@@ -2069,19 +2069,34 @@ label {
 .card-working .card-info p {
   color: #9B9C9F;
 }
-.card-working:hover {
+.card-working:not(.nohover):hover {
   background-color: #C5FF41;
   border-color: #C5FF41;
 }
-.card-working:hover .card-number span {
+.card-working:not(.nohover):hover .card-number span {
   background-color: #191919;
   color: #C5FF41;
 }
-.card-working:hover .card-info h3 {
+.card-working:not(.nohover):hover .card-info h3 {
   color: #191919;
 }
-.card-working:hover .card-info p {
+.card-working:not(.nohover):hover .card-info p {
   color: #434445;
+}
+
+.card-working.bg {
+  background-color: #1E1E1E;
+}
+
+.text-break-all {
+  word-break: break-all;
+}
+
+hr {
+  border-width: 1px 0 0;
+  border-color: #434445;
+  margin: 2rem 0;
+  opacity: 1;
 }
 
 
